@@ -27,10 +27,6 @@ export default {
         },
       },
     },
-    fontFamily: {
-      body: ["Roboto"],
-      sans: ["Roboto"],
-    },
   },
   plugins: [],
 };

@@ -12,6 +12,7 @@ onMounted(() => {
     })
 })
 </script>
+
 <template>
     <button @click="darkModeStore.toggle()">
         <svg v-if="!darkMode" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"

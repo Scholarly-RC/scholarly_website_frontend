@@ -1,7 +1,6 @@
 <script setup>
-import Footer from '~/pages/components/Footer.vue';
+import Footer from '~/pages/components/footer/Footer.vue';
 import Header from '~/pages/components/Header.vue';
-
 </script>
 
 <template>
@@ -11,3 +10,9 @@ import Header from '~/pages/components/Header.vue';
         <Footer />
     </div>
 </template>
+
+<style scoped>
+div {
+    font-family: 'Montserrat', sans-serif;
+}
+</style>
