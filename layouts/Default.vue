@@ -1,11 +1,11 @@
 <script setup>
-import Footer from '~/pages/components/footer/Footer.vue';
-import Header from '~/pages/components/Header.vue';
+import Footer from '~/components/footer/Footer.vue';
+import Navbar from '~/components/navbar/Navbar.vue';
 </script>
 
 <template>
     <div>
-        <Header />
+        <Navbar />
         <slot />
         <Footer />
     </div>
