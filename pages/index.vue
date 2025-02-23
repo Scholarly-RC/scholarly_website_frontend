@@ -1,6 +1,6 @@
 <script setup>
 import FeatureSection from './components/feature/FeatureSection.vue';
-import Hero from './components/Hero.vue';
+import HeroSection from './components/HeroSection.vue';
 import TestimonialsSection from './components/TestimonialsSection.vue';
 
 useHead({
@@ -10,7 +10,7 @@ useHead({
 
 <template>
     <div>
-        <Hero />
+        <HeroSection />
         <FeatureSection />
         <TestimonialsSection />
     </div>
