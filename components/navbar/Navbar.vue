@@ -44,7 +44,8 @@ const toggleNavDropdown = () => {
                 </div>
                 <div class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1 relative"
                     :class="{ 'hidden': !showNavDropdown }">
-                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                    <ul
+                        class="w-full flex lg:hidden flex-col shadow-lg font-medium lg:flex-row lg:space-x-8 lg:mt-0 absolute top-0 bg-white border-gray-200 py-2.5 dark:bg-gray-800 z-50">
                         <li>
                             <NuxtLink to="/" class="block py-2 pr-4 pl-3 rounded lg:p-0"
                                 :class="{ 'active-nav': route.name === 'index', 'inactive-nav': route.name !== 'index' }">
@@ -52,7 +53,29 @@ const toggleNavDropdown = () => {
                             </NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/services"
+                            <NuxtLink to="/services" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'services', 'inactive-nav': route.name !== 'services' }">
+                                Services</NuxtLink>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Portfolio</a>
+                        </li>
+                        <li>
+                            <NuxtLink to="/about" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'about', 'inactive-nav': route.name !== 'about' }">
+                                About</NuxtLink>
+                        </li>
+                    </ul>
+                    <ul class="hidden lg:flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <NuxtLink to="/" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'index', 'inactive-nav': route.name !== 'index' }">
+                                Home
+                            </NuxtLink>
+                        </li>
+                        <li>
+                            <NuxtLink to="/services" class="block py-2 pr-4 pl-3 rounded lg:p-0"
                                 :class="{ 'active-nav': route.name === 'services', 'inactive-nav': route.name !== 'services' }">
                                 Services</NuxtLink>
                         </li>
