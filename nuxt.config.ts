@@ -8,7 +8,43 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "nuxt-swiper",
     "@nuxt/fonts",
+    "dayjs-nuxt",
   ],
+  app: {
+    head: {
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined",
+        },
+      ],
+    },
+  },
+  dayjs: {
+    locales: ["en"],
+    plugins: ["relativeTime", "timezone"],
+    defaultLocale: [
+      "en",
+      {
+        relativeTime: {
+          future: "in %s",
+          past: "%s ago",
+          s: "a few seconds",
+          m: "a minute",
+          mm: "%d minutes",
+          h: "an hour",
+          hh: "%d hours",
+          d: "a day",
+          dd: "%d days",
+          M: "a month",
+          MM: "%d months",
+          y: "a year",
+          yy: "%d years",
+        },
+      },
+    ],
+    defaultTimezone: "Asia/Manila",
+  },
   css: ["~/assets/css/input.css"],
   colorMode: {
     classSuffix: "",

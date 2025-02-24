@@ -3,8 +3,9 @@ const props = defineProps({
     services: Object
 })
 </script>
+
 <template>
-    <div class="flex flex-col gap-2">
+    <div v-show="props.services.status === 'published'" class="flex flex-col gap-2">
         <div :style="{ backgroundColor: props.services.color }"
             class="rounded w-14 h-14 flex items-center justify-center">
             <svg class="w-5 h-5 text-white lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 20 20"
