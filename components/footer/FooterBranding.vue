@@ -1,7 +1,5 @@
 <script setup>
 const config = useRuntimeConfig()
-const darkModeStore = useDarkModeStore()
-const { darkMode } = storeToRefs(darkModeStore)
 const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/footer_description/`, { method: "get" })
 </script>
 
@@ -13,14 +11,16 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/foot
             <img src="/assets/images/scholarly-logo-dark.png" class="mr-3 h-6 sm:h-9 hidden dark:block"
                 alt="Flowbite Logo" />
         </a>
-        <div v-if="status === 'success' && data?.data" class="flex flex-col gap-2 max-w-sm mt-3">
-            <p v-for="description_data in data.data" :key="description_data.id"
-                class="text-gray-500 sm:text-md dark:text-gray-400">
-                {{ description_data.description }}
-            </p>
+        <div v-if="status === 'pending'" class="flex flex-col gap-2 max-w-sm mt-3 animate-pulse">
+            <div v-for="n in 4" :key="n" class="h-4 w-full bg-gray-300 rounded"></div>
         </div>
-        <div v-else class="flex flex-col gap-2 max-w-sm mt-3 animate-pulse">
-            <div v-for="_ in Array(3)" :key="_" class="h-4 w-full bg-gray-300 rounded"></div>
+        <div v-else class="flex flex-col gap-2 max-w-sm mt-3">
+            <div v-show="data?.data?.status === 'published'">
+                <p v-for="(description_data, index) in data.data.descriptions" :key="index"
+                    class="text-gray-500 sm:text-md dark:text-gray-400">
+                    {{ description_data.info }}
+                </p>
+            </div>
         </div>
     </div>
 </template>

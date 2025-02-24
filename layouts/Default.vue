@@ -6,7 +6,9 @@ import Navbar from '~/components/navbar/Navbar.vue';
 <template>
     <div>
         <Navbar />
-        <slot />
+        <div class="mt-10">
+            <slot />
+        </div>
         <Footer />
     </div>
 </template>
