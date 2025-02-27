@@ -36,7 +36,7 @@ const scrollToContact = () => {
         </div>
         <div v-else>
             <div v-show="data?.data?.status === 'published'" class="relative w-full bg-cover bg-center"
-                :style="`background-image: url('${config.public.apiBaseUrl}/assets/${data.data?.image}/');`">
+                :style="`background-image: url('${config.public.apiBaseUrl}/assets/${data.data?.image}/?quality=85&format=webp');`">
                 <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                 <div class="relative max-w-screen-lg px-4 py-16 mx-auto">
                     <div class="max-w-lg mx-auto p-6 bg-black bg-opacity-30 rounded-lg lg:mx-0">

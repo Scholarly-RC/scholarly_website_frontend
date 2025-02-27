@@ -50,7 +50,7 @@ useSwiper(swaiperContainerRef, {
                             <figcaption
                                 class="flex flex-col sm:flex-row items-center justify-center mt-6 space-y-3 sm:space-y-0 sm:space-x-3">
                                 <img class="w-10 h-10 rounded-full"
-                                    :src="`${config.public.apiBaseUrl}/assets/${testimonial.image}/`" loading="lazy"
+                                    :src="`${config.public.apiBaseUrl}/assets/${testimonial.image}/?quality=85&format=webp`" loading="lazy"
                                     alt="Profile Picture">
                                 <div
                                     class="flex flex-col sm:flex-row sm:items-center sm:divide-x-2 divide-gray-500 dark:divide-gray-700">
