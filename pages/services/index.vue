@@ -1,4 +1,5 @@
 <script setup>
+import ContactUs from '~/components/contact-us/ContactUs.vue';
 import ServicesHero from './components/ServicesHero.vue';
 import ServicesOfferedSection from './components/ServicesOfferedSection.vue';
 
@@ -7,5 +8,6 @@ import ServicesOfferedSection from './components/ServicesOfferedSection.vue';
     <div>
         <ServicesHero />
         <ServicesOfferedSection />
+        <ContactUs />
     </div>
 </template>

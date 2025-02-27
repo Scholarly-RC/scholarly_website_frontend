@@ -1,6 +1,22 @@
 <script setup>
 const config = useRuntimeConfig()
 const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/hero/`, { method: "get" })
+
+const cta2Animation = ref("transition-all duration-300");
+
+const animateCta2 = () => {
+    cta2Animation.value = "animate-custom-bounce";
+    setTimeout(() => {
+        cta2Animation.value = "transition-all duration-300";
+    }, 1000);
+};
+
+const scrollToContact = () => {
+    const contactUsSection = document.getElementById("contact-us");
+    if (contactUsSection) {
+        contactUsSection.scrollIntoView({ behavior: "smooth" });
+    }
+};
 </script>
 
 <template>
@@ -32,7 +48,7 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/hero
                         </p>
                         <div class="flex flex-col sm:flex-row justify-start mt-6 w-full gap-2">
                             <div>
-                                <a href="#"
+                                <button @click="animateCta2"
                                     class="inline-flex items-center px-5 py-3 text-base font-medium text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                                     {{ data.data.cta_button_1_text }}
                                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -41,13 +57,13 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/hero
                                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                                             clip-rule="evenodd"></path>
                                     </svg>
-                                </a>
+                                </button>
                             </div>
                             <div>
-                                <a href="#"
+                                <button @click="scrollToContact" :class="cta2Animation"
                                     class="inline-flex items-center px-5 py-3 text-base font-medium text-white border border-white rounded-lg hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-100">
                                     {{ data.data.cta_button_2_text }}
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

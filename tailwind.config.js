@@ -26,6 +26,16 @@ export default {
           950: "#172554",
         },
       },
+      keyframes: {
+        customBounce: {
+          "0%, 100%": { transform: "translateY(0) scale(1)" },
+          "30%": { transform: "translateY(-10px) scale(1.1)" },
+          "60%": { transform: "translateY(5px) scale(0.9)" },
+        },
+      },
+      animation: {
+        "custom-bounce": "customBounce 0.6s ease-in-out",
+      },
     },
   },
   plugins: [],

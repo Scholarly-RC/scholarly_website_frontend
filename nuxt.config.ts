@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxt/fonts",
     "dayjs-nuxt",
+    "@vee-validate/nuxt",
   ],
   app: {
     head: {
@@ -50,6 +51,9 @@ export default defineNuxtConfig({
     classSuffix: "",
     preference: "light",
     fallback: "light",
+  },
+  veeValidate: {
+    autoImports: true,
   },
   runtimeConfig: {
     public: {
