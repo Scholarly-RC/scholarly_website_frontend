@@ -16,6 +16,13 @@ const handleNavbarToggle = (event) => {
     }
 };
 
+const scrollToContact = () => {
+    const contactUsSection = document.getElementById("contact-us");
+    if (contactUsSection) {
+        contactUsSection.scrollIntoView({ behavior: "smooth" });
+    }
+};
+
 onMounted(() => {
     document.addEventListener('click', handleNavbarToggle);
 });
@@ -29,17 +36,17 @@ onBeforeUnmount(() => {
     <header>
         <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 fixed w-full top-0 z-50">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
-                <a href="https://flowbite.com" class="flex items-center">
+                <NuxtLink to="/" class="flex items-center">
                     <img src="/assets/images/scholarly-logo-light.png" class="mr-3 h-6 sm:h-9 block dark:hidden"
                         alt="Flowbite Logo" />
                     <img src="/assets/images/scholarly-logo-dark.png" class="mr-3 h-6 sm:h-9 hidden dark:block"
                         alt="Flowbite Logo" />
-                </a>
+                </NuxtLink>
                 <div class="flex items-center lg:order-2 gap-2">
                     <DarkModeSwitchButton />
-                    <a href="#"
+                    <button @click="scrollToContact"
                         class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Contact
-                        Us</a>
+                        Us</button>
                     <button type="button"
                         class="filter-button inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         aria-expanded="false">

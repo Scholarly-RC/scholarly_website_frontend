@@ -13,5 +13,6 @@ useHead({
         <HeroSection />
         <FeatureSection />
         <TestimonialsSection />
+        <ContactUs />
     </div>
 </template>

@@ -5,12 +5,12 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/foot
 
 <template>
     <div class="mb-6 md:mb-0">
-        <a href="https://flowbite.com" class="flex items-center">
+        <NuxtLink to="/" class="flex items-center">
             <img src="/assets/images/scholarly-logo-light.png" class="mr-3 h-6 sm:h-9 block dark:hidden"
                 alt="Flowbite Logo" />
             <img src="/assets/images/scholarly-logo-dark.png" class="mr-3 h-6 sm:h-9 hidden dark:block"
                 alt="Flowbite Logo" />
-        </a>
+        </NuxtLink>
         <div v-if="status === 'pending'" class="flex flex-col gap-2 max-w-sm mt-3 animate-pulse">
             <div v-for="n in 4" :key="n" class="h-4 w-full bg-gray-300 rounded"></div>
         </div>
