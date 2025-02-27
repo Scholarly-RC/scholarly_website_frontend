@@ -24,7 +24,7 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/care
                     <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{{ data.data.description }}
                     </p>
                 </div>
-                <img class="w-full rounded-lg" :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/`"
+                <img class="w-full rounded-lg" :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
                     loading="lazy" alt="Careers Hero Image">
             </div>
         </div>

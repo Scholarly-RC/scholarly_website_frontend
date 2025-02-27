@@ -25,11 +25,12 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/abou
                     <p class="mb-4">{{ data?.data?.description }}</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mt-8">
-                    <img class="w-full rounded-lg" :src="`${config.public.apiBaseUrl}/assets/${data?.data?.image_1}/`"
+                    <img class="w-full rounded-lg"
+                        :src="`${config.public.apiBaseUrl}/assets/${data?.data?.image_1}/?quality=85&format=webp`"
                         loading="lazy" alt="About Page Image 1">
                     <img class="mt-4 w-full lg:mt-10 rounded-lg"
-                        :src="`${config.public.apiBaseUrl}/assets/${data?.data?.image_2}/`" loading="lazy"
-                        alt="About Page Image 2">
+                        :src="`${config.public.apiBaseUrl}/assets/${data?.data?.image_2}/?quality=85&format=webp`"
+                        loading="lazy" alt="About Page Image 2">
                 </div>
             </div>
         </div>

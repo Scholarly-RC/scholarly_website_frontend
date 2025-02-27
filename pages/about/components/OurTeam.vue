@@ -4,6 +4,15 @@ import TeamMember from './TeamMember.vue';
 const config = useRuntimeConfig()
 const { data: our_team_header_data, status: our_team_header_status, error: our_team_header_error } = useFetch(`${config.public.apiBaseUrl}/items/our_team_header/`, { method: "get" })
 const { data: our_team_members_data, status: our_team_members_status, error: our_team_members_error } = useFetch(`${config.public.apiBaseUrl}/items/our_team_members/`, { method: "get" })
+
+
+const founders = computed(() => {
+    return our_team_members_data.value.data.filter(member => member.is_founder === true);
+});
+
+const nonFounders = computed(() => {
+    return our_team_members_data.value.data.filter(member => member.is_founder === false);
+});
 </script>
 
 <template>
@@ -13,12 +22,20 @@ const { data: our_team_members_data, status: our_team_members_status, error: our
                 <div class="h-10 w-3/4 bg-gray-400 rounded mb-4 mx-auto"></div>
                 <div class="h-6 w-full bg-gray-300 rounded mx-auto"></div>
             </div>
-            <div v-else class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+            <div v-else class="mx-auto mb-8 max-w-screen-lg">
                 <div v-show="our_team_header_data?.data?.status === 'published'">
                     <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{
                         our_team_header_data.data.title }}</h2>
-                    <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">{{
+                    <p class="mb-4 font-light text-gray-500 sm:text-xl dark:text-gray-400">{{
                         our_team_header_data.data.description }}</p>
+                    <div class="inline-flex items-center justify-center w-full">
+                        <hr class="w-full h-px my-8 bg-gray-200 border-1 dark:bg-gray-700">
+                        <span
+                            class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
+                            <h2 class="text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{
+                                our_team_header_data.data.founders_section_title }}</h2>
+                        </span>
+                    </div>
                 </div>
             </div>
             <div v-if="our_team_members_status === 'pending'"
@@ -29,9 +46,21 @@ const { data: our_team_members_data, status: our_team_members_status, error: our
                     <div class="h-4 w-1/3 bg-gray-300 rounded mx-auto"></div>
                 </div>
             </div>
-            <div v-else class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
-                <TeamMember v-for="team_member in our_team_members_data.data" :key="team_member.id"
-                    :team_member="team_member" />
+            <div v-else>
+                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
+                    <TeamMember v-for="team_member in founders" :key="team_member.id" :team_member="team_member" />
+                </div>
+                <div class="my-4 inline-flex items-center justify-center w-full">
+                    <hr class="w-full h-px my-8 bg-gray-200 border-1 dark:bg-gray-700">
+                    <span
+                        class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
+                        <h2 class="text-xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{
+                            our_team_header_data.data.non_founders_section_title }}</h2>
+                    </span>
+                </div>
+                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
+                    <TeamMember v-for="team_member in nonFounders" :key="team_member.id" :team_member="team_member" />
+                </div>
             </div>
         </div>
     </section>
