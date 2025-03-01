@@ -1,18 +1,10 @@
 <script setup>
+import Founder from './Founder.vue';
 import TeamMember from './TeamMember.vue';
 
 const config = useRuntimeConfig()
 const { data: our_team_header_data, status: our_team_header_status, error: our_team_header_error } = useFetch(`${config.public.apiBaseUrl}/items/our_team_header/`, { method: "get" })
 const { data: our_team_members_data, status: our_team_members_status, error: our_team_members_error } = useFetch(`${config.public.apiBaseUrl}/items/our_team_members/`, { method: "get" })
-
-
-const founders = computed(() => {
-    return our_team_members_data.value.data.filter(member => member.is_founder === true);
-});
-
-const nonFounders = computed(() => {
-    return our_team_members_data.value.data.filter(member => member.is_founder === false);
-});
 </script>
 
 <template>
@@ -24,8 +16,6 @@ const nonFounders = computed(() => {
             </div>
             <div v-else class="mx-auto mb-8 max-w-screen-lg">
                 <div v-show="our_team_header_data?.data?.status === 'published'">
-                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{
-                        our_team_header_data.data.title }}</h2>
                     <p class="mb-4 font-light text-gray-500 sm:text-xl dark:text-gray-400">{{
                         our_team_header_data.data.description }}</p>
                     <div class="inline-flex items-center justify-center w-full">
@@ -36,6 +26,7 @@ const nonFounders = computed(() => {
                                 our_team_header_data.data.founders_section_title }}</h2>
                         </span>
                     </div>
+                    <Founder />
                 </div>
             </div>
             <div v-if="our_team_members_status === 'pending'"
@@ -47,9 +38,6 @@ const nonFounders = computed(() => {
                 </div>
             </div>
             <div v-else>
-                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
-                    <TeamMember v-for="team_member in founders" :key="team_member.id" :team_member="team_member" />
-                </div>
                 <div class="my-4 inline-flex items-center justify-center w-full">
                     <hr class="w-full h-px my-8 bg-gray-200 border-1 dark:bg-gray-700">
                     <span
@@ -59,7 +47,8 @@ const nonFounders = computed(() => {
                     </span>
                 </div>
                 <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
-                    <TeamMember v-for="team_member in nonFounders" :key="team_member.id" :team_member="team_member" />
+                    <TeamMember v-for="team_member in our_team_members_data.data" :key="team_member.id"
+                        :team_member="team_member" />
                 </div>
             </div>
         </div>
