@@ -134,7 +134,7 @@ onMounted(() => {
                                     <span class="text-sm font-semibold">You</span>
                                 </div>
                                 <p class="text-sm font-normal py-1 break-all">
-                                    {{ chat.message }} barsubiacharlesbarsubiacharlesbarsubiacharles@gmail.com
+                                    {{ chat.message }}
                                 </p>
                             </div>
                             <img class="w-8 h-8 rounded-full"
