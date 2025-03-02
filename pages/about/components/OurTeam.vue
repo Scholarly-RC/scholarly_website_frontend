@@ -46,7 +46,7 @@ const { data: our_team_members_data, status: our_team_members_status, error: our
                             our_team_header_data.data.non_founders_section_title }}</h2>
                     </span>
                 </div>
-                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
+                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2">
                     <TeamMember v-for="team_member in our_team_members_data.data" :key="team_member.id"
                         :team_member="team_member" />
                 </div>

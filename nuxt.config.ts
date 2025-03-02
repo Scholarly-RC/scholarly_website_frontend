@@ -60,5 +60,12 @@ export default defineNuxtConfig({
       apiBaseUrl:
         process.env.NUXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8055",
     },
+    EMBEDDING_MODEL: process.env.EMBEDDING_MODEL,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    QDRANT_URL: process.env.QDRANT_URL,
+    QDRANT_API_KEY: process.env.QDRANT_API_KEY,
+    CHAT_OPENAI_MODEL: process.env.CHAT_OPENAI_MODEL,
+    NOMIC_API_KEY: process.env.NOMIC_API_KEY,
+    QDRANT_COLLECTION_NAME: process.env.QDRANT_COLLECTION_NAME,
   },
 });
