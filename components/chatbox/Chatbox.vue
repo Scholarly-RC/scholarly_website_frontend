@@ -35,10 +35,15 @@ const handleChatSend = async (message) => {
         isTyping.value = true
         const data = await $fetch("/api/getResponse", {
             method: "POST",
-            body: JSON.stringify({ query: message, chatHistory: JSON.stringify(chatHistory.value) }),
+            body: JSON.stringify({ query: message, chatHistory: chatHistory.value }),
         });
         isTyping.value = false
         chatbotStore.updateChatHistory("AI", data)
+
+        await $fetch("/api/saveChatbotMessages", {
+            method: "POST",
+            body: JSON.stringify({ query: message, response: data }),
+        });
     } catch (error) {
         console.error(error)
     }
