@@ -87,7 +87,7 @@ onMounted(() => {
             </div>
         </button>
         <div v-else
-            class="z-50 fixed right-2 bottom-2 w-full max-w-sm px-4 pt-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col">
+            class="z-50 fixed right-2 bottom-2 w-full max-w-xs sm:max-w-sm px-4 pt-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col">
             <div class="flex items-center justify-between my-2">
                 <div class="flex flex-row gap-2 items-center">
                     <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">{{ chatBoxTitle }}</h5>
@@ -118,7 +118,7 @@ onMounted(() => {
                                 :src="`${config.public.apiBaseUrl}/assets/${data.data.ai_image}/?quality=85&format=webp`"
                                 alt="AI Image">
                             <div
-                                class="me-2 flex flex-col w-auto max-w-lg leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+                                class="me-2 flex flex-col w-auto max-w-lg leading-1.5 px-3 py-1 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
                                     <span class="text-sm font-semibold text-gray-900 dark:text-white">AI</span>
                                 </div>
@@ -129,11 +129,11 @@ onMounted(() => {
                         </div>
                         <div v-else class="flex items-start gap-2.5 justify-end mr-1">
                             <div
-                                class="flex flex-col w-auto max-w-lg leading-1.5 p-4 border-gray-200 bg-blue-500 text-white rounded-s-xl rounded-ee-xl">
+                                class="flex flex-col w-auto max-w-lg leading-1.5 px-3 py-1 border-gray-200 bg-blue-500 text-white rounded-s-xl rounded-ee-xl">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse justify-end">
                                     <span class="text-sm font-semibold">You</span>
                                 </div>
-                                <p class="text-sm font-normal py-2.5">
+                                <p class="text-sm font-normal py-1">
                                     {{ chat.message }}
                                 </p>
                             </div>
