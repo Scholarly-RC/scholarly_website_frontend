@@ -27,7 +27,7 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/foun
             <div v-else class="max-w-screen-md mx-auto">
                 <div v-show="data?.data?.status === 'published'">
                     <div class="md:float-left md:mr-6 mb-4 md:mb-2 flex flex-col items-center text-center">
-                        <img class="mx-auto mb-4 w-48 h-48 rounded-full"
+                        <img class="mx-auto mb-4 w-36 sm:w-48 h-36 sm:h-48 rounded-full"
                             :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
                             loading="lazy" alt="Founder Image">
                         <h3 class="mt-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
