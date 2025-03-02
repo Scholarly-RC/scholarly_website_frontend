@@ -122,7 +122,7 @@ onMounted(() => {
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
                                     <span class="text-sm font-semibold text-gray-900 dark:text-white">AI</span>
                                 </div>
-                                <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+                                <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white break-all">
                                     {{ chat.message }}
                                 </p>
                             </div>
@@ -133,7 +133,7 @@ onMounted(() => {
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse justify-end">
                                     <span class="text-sm font-semibold">You</span>
                                 </div>
-                                <p class="text-sm font-normal py-1">
+                                <p class="text-sm font-normal py-1 break-all">
                                     {{ chat.message }}
                                 </p>
                             </div>
