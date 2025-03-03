@@ -74,7 +74,7 @@ onMounted(() => {
         <button v-if="!isChatBoxOpen" @click="toggleChatBox"
             class="z-50 fixed right-3 bottom-3 w-auto flex items-end justify-end">
             <div
-                class="w-16 sm:w-20 h-16 sm:h-20 bg-gray-200 dark:bg-gray-800 rounded-full ring-2 ring-gray-400 dark:ring-gray-600 hover:ring-blue-500 dark:hover:ring-blue-400 flex items-center justify-center shadow-xl transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-gray-300 dark:hover:bg-gray-700">
+                class="w-16 sm:w-20 h-16 sm:h-20 bg-gray-200 dark:bg-gray-800 rounded-full ring-1 ring-gray-400 dark:ring-gray-600 hover:ring-gray-400 dark:hover:ring-gray-500 flex items-center justify-center shadow-xl transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-gray-300 dark:hover:bg-gray-700">
                 <svg class="w-8 sm:w-10 h-8 sm:h-10 text-gray-800 dark:text-white" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
