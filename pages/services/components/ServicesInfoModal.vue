@@ -18,8 +18,7 @@ onMounted(() => {
         class="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
         <div class="relative p-4 w-full max-w-3xl">
             <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                <div
-                    class="flex items-center justify-between p-2 rounded-t dark:border-gray-600 border-gray-200">
+                <div class="flex items-center justify-between p-2 rounded-t dark:border-gray-600 border-gray-200">
                     <button @click="servicesStore.close()" type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                         data-modal-hide="default-modal">
@@ -33,7 +32,8 @@ onMounted(() => {
                 <div class="px-4 bg-white dark:bg-gray-900 relative rounded-lg">
                     <div class="py-4 px-4 mx-auto max-w-screen-md max-h-[70vh] md:max-h-[75vh] h-auto overflow-y-auto">
                         <ClientOnly>
-                            <div v-if="content" v-html="content" class="no-tailwindcss-base text-black dark:text-white">
+                            <div v-if="content" v-html="content"
+                                class="no-tailwindcss-base text-gray-900 dark:text-white">
                             </div>
                         </ClientOnly>
                     </div>
