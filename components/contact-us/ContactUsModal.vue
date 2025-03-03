@@ -76,7 +76,7 @@ onMounted(() => {
                         </svg>
                     </button>
                 </div>
-                <div class="p-4 md:p-5 bg-white dark:bg-gray-900 relative">
+                <div class="p-4 md:p-5 bg-white dark:bg-gray-900 relative rounded-lg">
                     <div class="py-4 px-4 mx-auto max-w-screen-md max-h-[70vh] md:max-h-[75vh] h-auto overflow-y-auto">
                         <div v-if="isSubmitting"
                             class="absolute inset-0 flex items-center justify-center bg-gray-300 bg-opacity-30 backdrop-blur-sm z-50 dark:bg-gray-800 dark:bg-opacity-50">
