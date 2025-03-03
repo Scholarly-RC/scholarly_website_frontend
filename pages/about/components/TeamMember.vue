@@ -23,7 +23,7 @@ const toggleSeeMore = () => {
             <p class="underline">{{ props.team_member.position }}</p>
             <div class="mt-4 p-4 flex items-center flex-col gap-3">
                 <ClientOnly>
-                    <div v-html="props.team_member.bio_note" class="font-semibold"
+                    <div v-html="props.team_member.bio_note" class="no-tailwindcss-base text-gray-900 dark:text-white"
                         :class="{ 'line-clamp-3': !seeMore }">
                     </div>
                     <button v-show="props.team_member.bio_note" @click="toggleSeeMore" class="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg 

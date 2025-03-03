@@ -36,9 +36,10 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/foun
                         <p class="underline text-gray-500 dark:text-gray-400">{{ data.data.position }}</p>
                     </div>
                     <!-- Dynamic Content -->
-                    <div class="text-gray-900 dark:text-white text-start">
+                    <div>
                         <ClientOnly>
-                            <div v-html="data.data.info"></div>
+                            <div v-html="data.data.info" class="no-tailwindcss-base text-gray-900 dark:text-white">
+                            </div>
                         </ClientOnly>
                     </div>
                 </div>

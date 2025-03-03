@@ -2,6 +2,7 @@
 import ContactUs from '~/components/contact-us/ContactUs.vue';
 import ServicesHero from './components/ServicesHero.vue';
 import ServicesOfferedSection from './components/ServicesOfferedSection.vue';
+import ServicesInfoModal from './components/ServicesInfoModal.vue';
 
 </script>
 <template>
@@ -9,5 +10,6 @@ import ServicesOfferedSection from './components/ServicesOfferedSection.vue';
         <ServicesHero />
         <ServicesOfferedSection />
         <ContactUs />
+        <ServicesInfoModal />
     </div>
 </template>
