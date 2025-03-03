@@ -7,7 +7,7 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/care
     <section class="bg-white dark:bg-gray-900">
         <div v-if="status === 'pending'"
             class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-lg md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-            <div class="mt-4 md:mt-0">
+            <div class="mt-4 md:mt-0 mb-4 md:mb-0">
                 <div class="mb-4 h-10 w-3/4 bg-gray-300 dark:bg-gray-700 rounded animate-pulse"></div>
                 <div class="mb-6 h-6 w-full bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
                 <div class="h-6 w-5/6 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
@@ -24,7 +24,8 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/care
                     <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{{ data.data.description }}
                     </p>
                 </div>
-                <img class="w-full rounded-lg" :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
+                <img class="w-full rounded-lg"
+                    :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
                     loading="lazy" alt="Careers Hero Image">
             </div>
         </div>
