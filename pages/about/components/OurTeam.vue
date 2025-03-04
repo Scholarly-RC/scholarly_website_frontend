@@ -5,6 +5,20 @@ import TeamMember from './TeamMember.vue';
 const config = useRuntimeConfig()
 const { data: our_team_header_data, status: our_team_header_status, error: our_team_header_error } = useFetch(`${config.public.apiBaseUrl}/items/our_team_header/`, { method: "get" })
 const { data: our_team_members_data, status: our_team_members_status, error: our_team_members_error } = useFetch(`${config.public.apiBaseUrl}/items/our_team_members/`, { method: "get" })
+
+const columnedMembers = computed(() => {
+    const columnCount = 2;
+    const result = Array.from({ length: columnCount }, () => []);
+
+    our_team_members_data.value?.data.forEach((member, index) => {
+        const columnIndex = index % columnCount;
+        result[columnIndex].push(member);
+    });
+
+    return result;
+})
+
+
 </script>
 
 <template>
@@ -46,7 +60,14 @@ const { data: our_team_members_data, status: our_team_members_status, error: our
                             our_team_header_data.data.non_founders_section_title }}</h2>
                     </span>
                 </div>
-                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2">
+                <div class="hidden md:flex gap-8 lg:gap-10">
+                    <!-- Dynamic columns based on team member count -->
+                    <div v-for="(column, index) in columnedMembers" :key="index"
+                        class="flex-1 flex flex-col gap-8 lg:gap-10">
+                        <TeamMember v-for="team_member in column" :key="team_member.id" :team_member="team_member" />
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:hidden gap-8 lg:gap-10">
                     <TeamMember v-for="team_member in our_team_members_data.data" :key="team_member.id"
                         :team_member="team_member" />
                 </div>
