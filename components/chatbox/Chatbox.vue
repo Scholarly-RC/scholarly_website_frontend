@@ -118,22 +118,22 @@ onMounted(() => {
                                 :src="`${config.public.apiBaseUrl}/assets/${data.data.ai_image}/?quality=85&format=webp`"
                                 alt="AI Image">
                             <div
-                                class="me-2 flex flex-col w-auto max-w-lg leading-1.5 px-3 py-1 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+                                class="w-auto max-w-[12rem] sm:max-w-[16rem] flex flex-col leading-1.5 px-3 py-1 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
                                     <span class="text-sm font-semibold text-gray-900 dark:text-white">AI</span>
                                 </div>
-                                <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white break-all">
-                                    {{ chat.message }}
-                                </p>
+                                <div v-html="chat.message" style="font-size: 0.75rem;"
+                                    class="no-tailwindcss-base text-gray-900 dark:text-white">
+                                </div>
                             </div>
                         </div>
                         <div v-else class="flex items-start gap-2.5 justify-end mr-1">
                             <div
-                                class="flex flex-col w-auto max-w-lg leading-1.5 px-3 py-1 border-gray-200 bg-blue-500 text-white rounded-s-xl rounded-ee-xl">
+                                class="w-auto max-w-[12rem] sm:max-w-[16rem] flex flex-col leading-1.5 px-3 py-1 border-gray-200 bg-blue-500 text-white rounded-s-xl rounded-ee-xl">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse justify-end">
                                     <span class="text-sm font-semibold">You</span>
                                 </div>
-                                <p class="text-sm font-normal py-1 break-all">
+                                <p style="font-size: 0.75rem;" class="no-tailwindcss-base">
                                     {{ chat.message }}
                                 </p>
                             </div>
