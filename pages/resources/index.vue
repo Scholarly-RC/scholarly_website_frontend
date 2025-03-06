@@ -1,4 +1,5 @@
 <script setup>
+import ContactUs from '~/components/contact-us/ContactUs.vue';
 import FeaturedBooks from './components/FeaturedBooks.vue';
 import ResourcesHero from './components/ResourcesHero.vue';
 
@@ -7,5 +8,6 @@ import ResourcesHero from './components/ResourcesHero.vue';
     <div>
         <ResourcesHero />
         <FeaturedBooks />
+        <ContactUs />
     </div>
 </template>
