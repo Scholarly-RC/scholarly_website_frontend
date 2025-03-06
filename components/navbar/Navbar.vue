@@ -2,6 +2,7 @@
 import DarkModeSwitchButton from './DarkModeSwitchButton.vue';
 
 const route = useRoute()
+const scrollStore = useScrollStore()
 const showNavDropdown = ref(false)
 
 const toggleNavDropdown = () => {
@@ -13,13 +14,6 @@ const handleNavbarToggle = (event) => {
         toggleNavDropdown()
     } else {
         showNavDropdown.value = false
-    }
-};
-
-const scrollToContact = () => {
-    const contactUsSection = document.getElementById("contact-us");
-    if (contactUsSection) {
-        contactUsSection.scrollIntoView({ behavior: "smooth" });
     }
 };
 
@@ -44,7 +38,7 @@ onBeforeUnmount(() => {
                 </NuxtLink>
                 <div class="flex items-center lg:order-2 gap-2">
                     <DarkModeSwitchButton />
-                    <button @click="scrollToContact"
+                    <button @click="scrollStore.scrollToContact"
                         class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Contact
                         Us</button>
                     <button type="button"

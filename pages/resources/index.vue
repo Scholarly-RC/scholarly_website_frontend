@@ -2,6 +2,7 @@
 import ContactUs from '~/components/contact-us/ContactUs.vue';
 import FeaturedBooks from './components/FeaturedBooks.vue';
 import ResourcesHero from './components/ResourcesHero.vue';
+import OrderButton from './components/OrderButton.vue';
 
 useHead({
     title: "Scholarly Impact Consulting Co. | Resources",
@@ -22,6 +23,7 @@ useHead({
     <div>
         <ResourcesHero />
         <FeaturedBooks />
+        <OrderButton />
         <ContactUs />
     </div>
 </template>
