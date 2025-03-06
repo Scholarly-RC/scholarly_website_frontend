@@ -79,13 +79,13 @@ onBeforeUnmount(() => {
                                 Services</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/resources" class="block py-2 pr-4 pl-3 rounded lg:p-0"
-                                :class="{ 'active-nav': route.name === 'resources', 'inactive-nav': route.name !== 'resources' }">
+                            <NuxtLink to="/careers" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'careers', 'inactive-nav': route.name !== 'careers' }">
                                 Careers</NuxtLink>
                         </li>
                         <li>
-                            <NuxtLink to="/careers" class="block py-2 pr-4 pl-3 rounded lg:p-0"
-                                :class="{ 'active-nav': route.name === 'careers', 'inactive-nav': route.name !== 'careers' }">
+                            <NuxtLink to="/resources" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'resources', 'inactive-nav': route.name !== 'resources' }">
                                 Resources</NuxtLink>
                         </li>
                         <li>
