@@ -1,22 +1,8 @@
 <script setup>
 const config = useRuntimeConfig()
 const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/hero/`, { method: "get" })
-
-const cta2Animation = ref("transition-all duration-300");
-
-const animateCta2 = () => {
-    cta2Animation.value = "animate-custom-bounce";
-    setTimeout(() => {
-        cta2Animation.value = "transition-all duration-300";
-    }, 1000);
-};
-
-const scrollToContact = () => {
-    const contactUsSection = document.getElementById("contact-us");
-    if (contactUsSection) {
-        contactUsSection.scrollIntoView({ behavior: "smooth" });
-    }
-};
+const scrollStore = useScrollStore()
+const { isGetStartedClicked } = storeToRefs(scrollStore)
 </script>
 
 <template>
@@ -48,7 +34,7 @@ const scrollToContact = () => {
                         </p>
                         <div class="flex flex-col sm:flex-row justify-start mt-6 w-full gap-2">
                             <div>
-                                <button @click="animateCta2"
+                                <button @click="scrollStore.getStartedClicked"
                                     class="inline-flex items-center px-5 py-3 text-base font-medium text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                                     {{ data.data.cta_button_1_text }}
                                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -60,7 +46,8 @@ const scrollToContact = () => {
                                 </button>
                             </div>
                             <div>
-                                <button @click="scrollToContact" :class="cta2Animation"
+                                <button @click="scrollStore.scrollToContact"
+                                    :class="{ 'animate-custom-bounce': isGetStartedClicked }"
                                     class="inline-flex items-center px-5 py-3 text-base font-medium text-white border border-white rounded-lg hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-100">
                                     {{ data.data.cta_button_2_text }}
                                 </button>
