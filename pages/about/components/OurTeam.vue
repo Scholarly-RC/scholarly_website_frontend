@@ -17,8 +17,6 @@ const columnedMembers = computed(() => {
 
     return result;
 })
-
-
 </script>
 
 <template>
@@ -61,7 +59,6 @@ const columnedMembers = computed(() => {
                     </span>
                 </div>
                 <div class="hidden md:flex gap-8 lg:gap-10">
-                    <!-- Dynamic columns based on team member count -->
                     <div v-for="(column, index) in columnedMembers" :key="index"
                         class="flex-1 flex flex-col gap-8 lg:gap-10">
                         <TeamMember v-for="team_member in column" :key="team_member.id" :team_member="team_member" />

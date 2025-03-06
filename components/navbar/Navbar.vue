@@ -84,6 +84,11 @@ onBeforeUnmount(() => {
                                 Careers</NuxtLink>
                         </li>
                         <li>
+                            <NuxtLink to="/resources" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'resources', 'inactive-nav': route.name !== 'resources' }">
+                                Resources</NuxtLink>
+                        </li>
+                        <li>
                             <NuxtLink to="/about" class="block py-2 pr-4 pl-3 rounded lg:p-0"
                                 :class="{ 'active-nav': route.name === 'about', 'inactive-nav': route.name !== 'about' }">
                                 About</NuxtLink>
@@ -105,6 +110,11 @@ onBeforeUnmount(() => {
                             <NuxtLink to="/careers" class="block py-2 pr-4 pl-3 rounded lg:p-0"
                                 :class="{ 'active-nav': route.name === 'careers', 'inactive-nav': route.name !== 'careers' }">
                                 Careers</NuxtLink>
+                        </li>
+                        <li>
+                            <NuxtLink to="/resources" class="block py-2 pr-4 pl-3 rounded lg:p-0"
+                                :class="{ 'active-nav': route.name === 'resources', 'inactive-nav': route.name !== 'resources' }">
+                                Resources</NuxtLink>
                         </li>
                         <li>
                             <NuxtLink to="/about" class="block py-2 pr-4 pl-3 rounded lg:p-0"
