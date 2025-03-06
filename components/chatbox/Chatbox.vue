@@ -60,6 +60,7 @@ const chatBoxTitle = computed(() => {
 onMounted(() => {
     watchEffect(() => {
         isTyping.value
+        isChatBoxOpen.value
         nextTick(() => {
             if (chatContainer.value) {
                 chatContainer.value.scrollTop = chatContainer.value.scrollHeight;
@@ -143,7 +144,7 @@ onMounted(() => {
                         </div>
                     </div>
                 </div>
-                <div v-if="isTyping" class="w-full flex items-center justify-center gap-2.5">
+                <div v-if="isTyping" class="w-full flex items-center justify-center gap-2.5 mb-1">
                     <div class="flex space-x-1 p-3 bg-gray-100 dark:bg-gray-700 rounded-xl rounded-es-xl">
                         <span
                             class="w-2 h-2 bg-gray-500 dark:bg-white rounded-full animate-bounce [animation-delay:0s]"></span>
