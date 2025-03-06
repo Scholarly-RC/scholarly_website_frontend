@@ -18,8 +18,8 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/reso
             </div>
         </div>
         <div v-else class="py-8 px-4 mx-auto max-w-screen-lg lg:pb-10 lg:pt-5 lg:px-6">
-            <div v-if="data?.data" class="flex justify-center gap-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-6 xl:gap-10">
+            <div v-show="data?.data" class="flex justify-center gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
                     <BookCard v-for="item in data.data" :key="item.id" :book="item" />
                 </div>
             </div>
