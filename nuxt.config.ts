@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "dayjs-nuxt",
     "@vee-validate/nuxt",
+    "@nuxtjs/sitemap",
   ],
   app: {
     head: {
@@ -54,6 +55,10 @@ export default defineNuxtConfig({
   },
   veeValidate: {
     autoImports: true,
+  },
+  site: {
+    url: "https://scholarlyconsulting.co",
+    name: "Scholarly Impact Consulting Co.",
   },
   runtimeConfig: {
     public: {
