@@ -39,7 +39,7 @@ const prevImage = () => {
 };
 
 const nextImage = () => {
-    isImgsLoading.value = false
+    isImgsLoading.value = true
     if (currentImageIndex.value < imageIds.value.length - 1) {
         currentImageIndex.value++;
     } else {
@@ -100,8 +100,7 @@ onMounted(() => {
 
                     <img class="max-w-[100%] max-h-[100%] object-contain rounded-lg"
                         :src="`${config.public.apiBaseUrl}/assets/${imageIds[currentImageIndex]}/?quality=85&format=webp`"
-                        :alt="`Fullscreen Image ${currentImageIndex + 1}`" loading="lazy"
-                        @load="isImgsLoading === false">
+                        :alt="`Fullscreen Image ${currentImageIndex + 1}`" loading="lazy" @load="isImgsLoading = false">
 
                     <button @click="nextImage"
                         class="absolute right-4 md:right-8 p-3 bg-white/90 text-gray-800 rounded-full shadow-lg dark:bg-gray-700/90 dark:text-white">
