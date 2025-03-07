@@ -117,7 +117,7 @@ onMounted(() => {
                         <div v-if="chat.role === 'AI'" class="flex items-start gap-2.5">
                             <img class="w-8 h-8 rounded-full"
                                 :src="`${config.public.apiBaseUrl}/assets/${data.data.ai_image}/?quality=85&format=webp`"
-                                alt="AI Image">
+                                loading="lazy" alt="AI Image">
                             <div
                                 class="w-auto max-w-[12rem] sm:max-w-[16rem] flex flex-col leading-1.5 px-3 py-1 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -140,7 +140,7 @@ onMounted(() => {
                             </div>
                             <img class="w-8 h-8 rounded-full"
                                 :src="`${config.public.apiBaseUrl}/assets/${data.data.user_image}/?quality=85&format=webp`"
-                                alt="User image">
+                                loading="lazy" alt="User image">
                         </div>
                     </div>
                 </div>
