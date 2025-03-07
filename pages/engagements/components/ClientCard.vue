@@ -50,10 +50,10 @@ onMounted(() => {
 </script>
 <template>
     <div v-show="props.client.status === 'published'">
-        <div v-show="imageIds.length > 0">
+        <div v-show="imageIds.length > 0" class="flex flex-col items-center justify-center">
             <div
-                class="w-full p-4 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 relative overflow-hidden group">
-                <img class="w-full h-auto rounded-lg transform transition-transform duration-300 group-hover:scale-125"
+                class="w-60 h-60 p-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 relative overflow-hidden group">
+                <img class="w-full h-full object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-110"
                     :src="`${config.public.apiBaseUrl}/assets/${imageIds[0]}/?quality=85&format=webp`" loading="lazy"
                     :alt="`About Page Image 1`">
                 <div
@@ -64,9 +64,10 @@ onMounted(() => {
                     </button>
                 </div>
             </div>
-            <h2 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ props.client.title }}
+            <h2 class="my-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white text-center">{{
+                props.client.title }}
             </h2>
-            <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ props.client.description }}</p>
+            <p class="mb-5 font-light text-gray-500 dark:text-gray-400 text-center">{{ props.client.description }}</p>
         </div>
         <div>
             <div v-if="isFullscreenOpen"
@@ -89,7 +90,7 @@ onMounted(() => {
                         </svg>
                     </button>
 
-                    <img class="w-full max-w-screen-sm max-h-full rounded-lg shadow-2xl"
+                    <img class="max-w-[100%] max-h-[100%] object-contain rounded-lg"
                         :src="`${config.public.apiBaseUrl}/assets/${imageIds[currentImageIndex]}/?quality=85&format=webp`"
                         :alt="`Fullscreen Image ${currentImageIndex + 1}`">
 
