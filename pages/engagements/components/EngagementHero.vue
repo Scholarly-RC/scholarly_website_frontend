@@ -5,9 +5,12 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/enga
 
 <template>
     <div class="mx-auto max-w-screen-lg py-16 px-4">
-        <div v-if="status === 'pending'" class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12 animate-pulse">
-            <div class="mb-4 h-10 w-3/4 mx-auto bg-gray-300 dark:bg-gray-700 rounded"></div>
-            <div class="mb-5 h-6 w-5/6 mx-auto bg-gray-300 dark:bg-gray-700 rounded"></div>
+        <div v-if="status === 'pending'" class="mx-auto max-w-screen-lg text-center mb-8 lg:mb-12 animate-pulse">
+            <div
+                class="relative h-64 w-full bg-gray-300 dark:bg-gray-700 rounded-3xl flex flex-col items-center justify-center">
+                <div class="mb-4 h-10 w-3/4 bg-gray-400 dark:bg-gray-600 rounded"></div>
+                <div class="h-6 w-5/6 bg-gray-400 dark:bg-gray-600 rounded"></div>
+            </div>
         </div>
         <div v-else
             class="relative mx-auto shadow-lg max-w-screen-lg text-center lg:p-16 lg:mb-5 bg-cover bg-center rounded-3xl"

@@ -7,6 +7,7 @@ const props = defineProps({
 const imageIds = ref([])
 const isFullscreenOpen = ref(false);
 const currentImageIndex = ref(0);
+const isImgsLoading = ref(false);
 
 const getImagesId = async () => {
     let ids = []
@@ -29,6 +30,7 @@ const closeFullscreen = () => {
 };
 
 const prevImage = () => {
+    isImgsLoading.value = true
     if (currentImageIndex.value > 0) {
         currentImageIndex.value--;
     } else {
@@ -37,6 +39,7 @@ const prevImage = () => {
 };
 
 const nextImage = () => {
+    isImgsLoading.value = false
     if (currentImageIndex.value < imageIds.value.length - 1) {
         currentImageIndex.value++;
     } else {
@@ -90,9 +93,15 @@ onMounted(() => {
                         </svg>
                     </button>
 
+                    <div v-if="isImgsLoading" class="absolute inset-0 flex items-center justify-center">
+                        <div class="animate-spin rounded-full h-16 w-16 border-4 border-t-transparent border-b-transparent border-l-gray-900 border-r-gray-900 dark:border-l-gray-100 dark:border-r-gray-100"
+                            aria-label="Loading"></div>
+                    </div>
+
                     <img class="max-w-[100%] max-h-[100%] object-contain rounded-lg"
                         :src="`${config.public.apiBaseUrl}/assets/${imageIds[currentImageIndex]}/?quality=85&format=webp`"
-                        :alt="`Fullscreen Image ${currentImageIndex + 1}`">
+                        :alt="`Fullscreen Image ${currentImageIndex + 1}`" loading="lazy"
+                        @load="isImgsLoading === false">
 
                     <button @click="nextImage"
                         class="absolute right-4 md:right-8 p-3 bg-white/90 text-gray-800 rounded-full shadow-lg dark:bg-gray-700/90 dark:text-white">
