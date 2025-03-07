@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "dayjs-nuxt",
     "@vee-validate/nuxt",
     "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
   ],
   app: {
     head: {
