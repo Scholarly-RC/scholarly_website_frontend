@@ -17,7 +17,7 @@ watchEffect(() => {
     <div v-show="props.services.status === 'published'" class="flex flex-col gap-2">
         <div :style="{ backgroundColor: props.services.color }"
             class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center p-2 shadow-md bg-opacity-80">
-            <span class="material-symbols-outlined text-white dark:text-gray-900 w-5 h-5 lg:w-6 lg:h-6">
+            <span class="material-symbols-outlined text-white dark:text-gray-900 w-6 h-6">
                 {{ props.services.icon }}
             </span>
         </div>
