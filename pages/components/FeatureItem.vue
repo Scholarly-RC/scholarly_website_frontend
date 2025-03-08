@@ -2,10 +2,6 @@
 const props = defineProps({
     feature_item: Object
 })
-
-watchEffect(() => {
-    console.log(props.feature_item)
-})
 </script>
 
 <template>

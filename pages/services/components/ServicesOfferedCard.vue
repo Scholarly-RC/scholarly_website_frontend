@@ -7,10 +7,6 @@ const props = defineProps({
 const handleViewServiceDetail = (content) => {
     servicesStore.open(content)
 }
-
-watchEffect(() => {
-    console.log(props.services)
-})
 </script>
 
 <template>
