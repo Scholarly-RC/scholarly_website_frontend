@@ -11,7 +11,7 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/reso
                 <div class="w-full h-40 bg-gray-300 rounded-lg"></div>
                 <div class="mt-4 w-full h-40 lg:mt-10 bg-gray-300 rounded-lg"></div>
             </div>
-            <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+            <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400 mt-4">
                 <div class="h-10 w-3/4 bg-gray-400 rounded mb-4"></div>
                 <div class="h-6 w-full bg-gray-300 rounded mb-4"></div>
             </div>
