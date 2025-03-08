@@ -7,7 +7,7 @@ const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/clie
 
 <template>
     <div>
-        <div v-show="status === 'success'"
+        <div v-show="status === 'success' && data?.data"
             class="grid gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center align-items-center">
             <ClientCard v-for="client in data.data" :key="client.id" :client="client" />
         </div>
