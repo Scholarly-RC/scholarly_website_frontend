@@ -124,7 +124,7 @@ onMounted(() => {
                                     <span class="text-sm font-semibold text-gray-900 dark:text-white">AI</span>
                                 </div>
                                 <div v-html="chat.message" style="font-size: 0.75rem;"
-                                    class="no-tailwindcss-base text-gray-900 dark:text-white">
+                                    class="no-tailwindcss-base text-gray-900 dark:text-white break-words">
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@ onMounted(() => {
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse justify-end">
                                     <span class="text-sm font-semibold">You</span>
                                 </div>
-                                <p style="font-size: 0.75rem;" class="no-tailwindcss-base">
+                                <p style="font-size: 0.75rem;" class="no-tailwindcss-base break-words">
                                     {{ chat.message }}
                                 </p>
                             </div>

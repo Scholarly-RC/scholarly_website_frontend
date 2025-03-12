@@ -18,6 +18,17 @@
     list-style: revert;
     padding: revert;
   }
+
+  .no-tailwindcss-base ul,
+  .no-tailwindcss-base ol {
+    list-style-position: outside;
+    padding-left: 1.5em;
+    margin: 1em 0;
+  }
+
+  .no-tailwindcss-base li {
+    padding-left: 0.5em;
+  }
 }
 
 @tailwind components;
