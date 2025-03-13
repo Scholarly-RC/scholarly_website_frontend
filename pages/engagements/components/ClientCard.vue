@@ -107,7 +107,7 @@ onMounted(() => {
                     </button>
 
                     <div v-if="isImgsLoading" class="absolute inset-0 flex items-center justify-center">
-                        <div class="animate-spin rounded-full h-16 w-16 border-4 border-t-transparent border-b-transparent border-l-gray-900 border-r-gray-900 dark:border-l-gray-100 dark:border-r-gray-100"
+                        <div class="animate-spin rounded-full h-16 w-16 border-4 border-t-transparent border-b-transparent border-l-gray-100 border-r-gray-100"
                             aria-label="Loading"></div>
                     </div>
 
