@@ -23,6 +23,22 @@ export default defineNuxtConfig({
       ],
     },
   },
+  fonts: {
+    families: [
+      {
+        name: "Montserrat",
+        provider: "google",
+        weights: [400, 500, 600, 700],
+        subsets: ["latin"],
+      },
+    ],
+    defaults: {
+      preload: true,
+    },
+  },
+  nitro: {
+    compressPublicAssets: true,
+  },
   dayjs: {
     locales: ["en"],
     plugins: ["relativeTime", "timezone"],

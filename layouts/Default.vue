@@ -14,9 +14,3 @@ import Navbar from '~/components/navbar/Navbar.vue';
         <Footer />
     </div>
 </template>
-
-<style scoped>
-div {
-    font-family: 'Montserrat', sans-serif;
-}
-</style>
