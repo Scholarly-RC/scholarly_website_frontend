@@ -80,6 +80,9 @@ export default defineNuxtConfig({
   sitemap: {
     exclude: [new RegExp("/components/")],
   },
+  robots: {
+    disallow: "/components/",
+  },
   runtimeConfig: {
     public: {
       apiBaseUrl:
