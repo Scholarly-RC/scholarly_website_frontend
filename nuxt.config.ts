@@ -81,7 +81,7 @@ export default defineNuxtConfig({
     exclude: [new RegExp("/components/")],
   },
   robots: {
-    disallow: "/components/",
+    disallow: ["/components/"],
   },
   runtimeConfig: {
     public: {
