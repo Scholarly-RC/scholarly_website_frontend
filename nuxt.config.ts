@@ -77,12 +77,6 @@ export default defineNuxtConfig({
     url: "https://scholarlyconsulting.co",
     name: "Scholarly Impact Consulting Co.",
   },
-  sitemap: {
-    exclude: [new RegExp("/components/")],
-  },
-  robots: {
-    disallow: ["/components/"],
-  },
   runtimeConfig: {
     public: {
       apiBaseUrl:
