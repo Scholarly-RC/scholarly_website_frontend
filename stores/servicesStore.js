@@ -3,15 +3,15 @@ import { defineStore } from "pinia";
 export const useServicesStore = defineStore("servicesStore", {
   state: () => ({
     isOpen: false,
-    content: null,
+    images: null,
   }),
   actions: {
-    open(content) {
-      this.content = content;
+    open(images) {
+      this.images = images;
       this.isOpen = true;
     },
     close() {
-      this.content = null;
+      this.images = null;
       this.isOpen = false;
     },
   },

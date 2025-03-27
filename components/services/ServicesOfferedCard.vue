@@ -4,8 +4,9 @@ const props = defineProps({
   services: Object
 })
 
-const handleViewServiceDetail = (content) => {
-  servicesStore.open(content)
+const handleViewServiceDetail = (image_data) => {
+  const image_ids = image_data.map(data => data.directus_files_id);
+  servicesStore.open(image_ids)
 }
 </script>
 
@@ -29,7 +30,7 @@ const handleViewServiceDetail = (content) => {
           </svg>
           <span class="leading-tight">{{ service.name }}</span>
         </div>
-        <button @click="handleViewServiceDetail(service.info)" v-show="service.images.length" class="px-3 py-1 text-sm font-medium rounded-lg transition 
+        <button @click="handleViewServiceDetail(service.images)" v-show="service.images.length" class="px-3 py-1 text-sm font-medium rounded-lg transition 
             bg-gray-200 text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700">
           View
         </button>
