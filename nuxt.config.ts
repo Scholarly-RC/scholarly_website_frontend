@@ -45,6 +45,10 @@ export default defineNuxtConfig({
     experimental: {
       wasm: true,
     },
+    prerender: {
+      routes: ['/sitemap.xml', '/robots.txt'],
+      crawlLinks: true,
+    },
   },
   dayjs: {
     locales: ["en"],
