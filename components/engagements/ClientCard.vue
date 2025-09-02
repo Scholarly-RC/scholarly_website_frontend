@@ -111,20 +111,7 @@ onMounted(() => {
           @click="closeFullscreen"
           class="z-50 cursor-pointer absolute top-6 right-6 p-3 bg-white/90 text-gray-800 rounded-full shadow-lg dark:bg-gray-700/90 dark:text-white"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <Icon name="heroicons:x-mark" class="h-6 w-6" />
         </button>
 
         <div class="relative w-full h-full flex items-center justify-center">
@@ -133,20 +120,7 @@ onMounted(() => {
             v-show="showImgNav"
             class="absolute left-4 md:left-8 p-3 bg-white/90 text-gray-800 rounded-full shadow-lg dark:bg-gray-700/90 dark:text-white"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+            <Icon name="heroicons:chevron-left" class="h-6 w-6" />
           </button>
 
           <div
@@ -173,20 +147,7 @@ onMounted(() => {
             v-show="showImgNav"
             class="absolute right-4 md:right-8 p-3 bg-white/90 text-gray-800 rounded-full shadow-lg dark:bg-gray-700/90 dark:text-white"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <Icon name="heroicons:chevron-right" class="h-6 w-6" />
           </button>
         </div>
       </div>

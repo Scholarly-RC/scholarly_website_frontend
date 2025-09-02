@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
+    "@nuxt/icon",
   ],
   app: {
     head: {

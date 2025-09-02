@@ -76,15 +76,7 @@ onMounted(() => {
             class="z-40 fixed right-3 bottom-3 w-auto flex items-end justify-end">
             <div
                 class="w-16 sm:w-20 h-16 sm:h-20 bg-gray-200 dark:bg-gray-800 rounded-full ring-1 ring-gray-400 dark:ring-gray-600 hover:ring-gray-400 dark:hover:ring-gray-500 flex items-center justify-center shadow-xl transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-gray-300 dark:hover:bg-gray-700">
-                <svg class="w-8 sm:w-10 h-8 sm:h-10 text-gray-800 dark:text-white" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                        d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z"
-                        clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                        d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z"
-                        clip-rule="evenodd" />
-                </svg>
+                <Icon name="heroicons:chat-bubble-left-right" class="w-8 sm:w-10 h-8 sm:h-10 text-gray-800 dark:text-white" />
             </div>
         </button>
         <div v-else
@@ -94,20 +86,12 @@ onMounted(() => {
                     <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">{{ chatBoxTitle }}</h5>
                     <button @click="resetChat"
                         class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.13 0 0 0 12.68-3.15M6 20v-4h4" />
-                        </svg>
+                        <Icon name="heroicons:arrow-path" class="w-6 h-6 text-gray-800 dark:text-white" />
                     </button>
                 </div>
                 <button @click="toggleChatBox"
                     class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
+                    <Icon name="heroicons:x-mark" class="w-6 h-6 text-gray-800 dark:text-white" />
                 </button>
             </div>
 
@@ -165,11 +149,7 @@ onMounted(() => {
                     <button @click="handleChatSend(currentMessage)" :disabled="!allowMessageSend" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer 
         hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600 
         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent">
-                        <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                            <path
-                                d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
-                        </svg>
+                        <Icon name="heroicons:paper-airplane" class="w-5 h-5 rotate-90 rtl:-rotate-90" />
                     </button>
                 </div>
             </div>
