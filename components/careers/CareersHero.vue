@@ -2,7 +2,7 @@
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/careers_hero_section/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 
@@ -44,12 +44,15 @@ const { data, status, error } = useFetch(
             {{ data.data.description }}
           </p>
         </div>
-        <img
-          class="w-full rounded-lg"
-          :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
-          loading="lazy"
-          alt="Careers Hero Image"
-        />
+         <NuxtImg
+           class="w-full rounded-lg"
+           :src="`${config.public.apiBaseUrl}/assets/${data.data.image}`"
+           :quality="85"
+           format="webp"
+           loading="lazy"
+           alt="Careers Hero Image"
+           preset="hero"
+         />
       </div>
     </div>
   </section>

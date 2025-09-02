@@ -4,7 +4,7 @@ import FeatureItems from "./FeatureItems.vue";
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/feature_section/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 

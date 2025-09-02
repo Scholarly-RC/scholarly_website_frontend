@@ -9,6 +9,7 @@ const {
   error: our_team_header_error,
 } = useFetch(`${config.public.apiBaseUrl}/items/our_team_header/`, {
   method: "get",
+  server: true,
 });
 const {
   data: our_team_members_data,
@@ -16,6 +17,7 @@ const {
   error: our_team_members_error,
 } = useFetch(`${config.public.apiBaseUrl}/items/our_team_members/`, {
   method: "get",
+  server: true,
 });
 
 const columnedMembers = computed(() => {

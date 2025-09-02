@@ -2,7 +2,7 @@
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/engagements_hero_section/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 

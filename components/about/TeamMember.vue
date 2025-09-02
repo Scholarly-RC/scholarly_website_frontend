@@ -16,12 +16,16 @@ const toggleSeeMore = () => {
     <div
       class="text-center text-gray-500 dark:text-gray-400 shadow-md rounded-lg cursor-pointer"
     >
-      <img
-        class="mx-auto mb-4 w-32 sm:w-36 h-32 sm:h-36 rounded-full"
-        :src="`${config.public.apiBaseUrl}/assets/${team_member.image}/?quality=85&format=webp`"
-        loading="lazy"
-        alt="Team Member Image"
-      />
+       <NuxtImg
+         class="mx-auto mb-4 w-32 sm:w-36 h-32 sm:h-36 rounded-full"
+         :src="`${config.public.apiBaseUrl}/assets/${team_member.image}`"
+         :quality="85"
+         format="webp"
+         loading="lazy"
+         alt="Team Member Image"
+         preset="avatar"
+         placeholder="[blurhash:data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI1Ii8+PC9maWx0ZXI+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNGM0Y0RjYiIGZpbHRlcj0idXJsKCNibHVyKSIvPjwvc3ZnPg==]"
+       />
       <h3
         class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
       >

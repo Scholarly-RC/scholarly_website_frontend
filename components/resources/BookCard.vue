@@ -32,13 +32,16 @@ const showButtonText = computed(() => {
         v-if="!showInfo"
         class="relative cursor-pointer flex flex-col p-1 mx-auto w-[20rem] h-[25rem] max-w-md text-gray-900 bg-white border border-gray-100 shadow dark:border-gray-600 dark:bg-gray-800 dark:text-white preserve-3d"
       >
-        <img
-          class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform"
-          :class="{ 'scale-90 opacity-50': showInfo }"
-          :src="`${config.public.apiBaseUrl}/assets/${book.image}/?quality=85&format=webp`"
-          loading="lazy"
-          :alt="`Book ${book.id} Alt Image`"
-        />
+         <NuxtImg
+           class="w-full h-full object-cover transition-transform duration-300 ease-in-out transform"
+           :class="{ 'scale-90 opacity-50': showInfo }"
+           :src="`${config.public.apiBaseUrl}/assets/${book.image}`"
+           :quality="85"
+           format="webp"
+           loading="lazy"
+           :alt="`Book ${book.id} Alt Image`"
+           preset="thumbnail"
+         />
       </div>
       <div
         v-else

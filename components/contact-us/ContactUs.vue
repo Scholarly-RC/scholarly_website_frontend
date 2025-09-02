@@ -3,7 +3,7 @@ import ContactUsConfirmationModal from './ContactUsConfirmationModal.vue';
 
 const config = useRuntimeConfig()
 const contactUsStore = useContactUsStore()
-const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/contact_us_section/`, { method: "get" })
+const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/contact_us_section/`, { method: "get", server: true })
 const scrollStore = useScrollStore()
 const { isClicked } = storeToRefs(scrollStore)
 </script>

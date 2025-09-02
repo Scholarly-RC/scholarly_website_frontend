@@ -2,7 +2,13 @@
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/services_hero_section/`,
-  { method: "get" }
+  {
+    method: "get",
+    server: true,
+    onResponseError: ({ response }) => {
+      console.error('Failed to fetch services hero data:', response?.status, response?.statusText)
+    }
+  }
 );
 </script>
 
@@ -20,30 +26,49 @@ const { data, status, error } = useFetch(
         <div class="w-2/3 h-6 bg-gray-300 rounded animate-pulse"></div>
       </div>
     </div>
-    <div v-else>
-      <div
-        v-show="data?.data?.status === 'published'"
-        class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-lg xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6"
-      >
-        <img
-          class="w-full rounded-lg"
-          :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
-          loading="lazy"
-          alt="Services Hero Image"
-        />
-        <div class="mt-4 md:mt-0">
-          <h2
-            class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
-          >
-            {{ data.data.title }}
-          </h2>
-          <p
-            class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400"
-          >
-            {{ data.data.description }}
-          </p>
-        </div>
-      </div>
-    </div>
+     <div v-else-if="status === 'error'">
+       <!-- Fallback content when API fails -->
+       <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-lg xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+         <div class="w-full h-64 bg-gray-300 rounded-lg flex items-center justify-center">
+           <span class="text-gray-500">Services Image</span>
+         </div>
+         <div class="mt-4 md:mt-0">
+           <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+             Our Services
+           </h2>
+           <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+             Comprehensive consulting solutions designed to elevate educational institutions and drive meaningful impact.
+           </p>
+         </div>
+       </div>
+     </div>
+     <div v-else>
+       <div
+         v-show="data?.data?.status === 'published'"
+         class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-lg xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6"
+       >
+          <NuxtImg
+            class="w-full rounded-lg"
+            :src="`${config.public.apiBaseUrl}/assets/${data.data.image}`"
+            :quality="85"
+            format="webp"
+            loading="lazy"
+            alt="Services Hero Image"
+            preset="hero"
+          />
+         <div class="mt-4 md:mt-0">
+           <h2
+             class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+           >
+             {{ data.data.title }}
+           </h2>
+           <p
+             class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400"
+           >
+             {{ data.data.description }}
+           </p>
+         </div>
+       </div>
+     </div>
   </section>
 </template>

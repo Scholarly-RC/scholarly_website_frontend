@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
     "@nuxt/icon",
+    "@nuxt/image",
   ],
   app: {
     head: {
@@ -38,7 +39,12 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
+    preset: 'static',
     compressPublicAssets: true,
+    minify: true,
+    experimental: {
+      wasm: true,
+    },
   },
   dayjs: {
     locales: ["en"],
@@ -74,10 +80,64 @@ export default defineNuxtConfig({
   veeValidate: {
     autoImports: true,
   },
+  vite: {
+    optimizeDeps: {
+      include: ['@nuxt/image'],
+    },
+  },
+  // @ts-ignore
+  image: {
+    domains: [
+      '127.0.0.1:8055',
+      'localhost:8055',
+      process.env.NUXT_PUBLIC_API_BASE_URL?.replace('http://', '').replace('https://', '') || 'scholarlyconsulting.co'
+    ],
+    format: ['webp', 'avif', 'png', 'jpg'],
+    quality: 85,
+    sizes: '320,640,768,1024,1280,1536',
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 100,
+          height: 100,
+          fit: 'cover',
+          quality: 80,
+        },
+      },
+      hero: {
+        modifiers: {
+          format: 'webp',
+          width: 1920,
+          height: 1080,
+          fit: 'cover',
+          quality: 90,
+        },
+      },
+      thumbnail: {
+        modifiers: {
+          format: 'webp',
+          width: 400,
+          height: 300,
+          fit: 'cover',
+          quality: 85,
+        },
+      },
+    },
+  },
   site: {
     url: "https://scholarlyconsulting.co",
     name: "Scholarly Impact Consulting Co.",
   },
+
   runtimeConfig: {
     public: {
       apiBaseUrl:

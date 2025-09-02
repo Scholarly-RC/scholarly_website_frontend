@@ -1,7 +1,7 @@
 <script setup>
 const config = useRuntimeConfig()
-const { data: footer_address_data, status: footer_address_data_status, error: footer_address_error } = useFetch(`${config.public.apiBaseUrl}/items/footer_address/`, { method: "get" })
-const { data: footer_contact_info_data, status: footer_contact_info_data_status, error: footer_contact_info_error } = useFetch(`${config.public.apiBaseUrl}/items/footer_contact_info/`, { method: "get" })
+const { data: footer_address_data, status: footer_address_data_status, error: footer_address_error } = useFetch(`${config.public.apiBaseUrl}/items/footer_address/`, { method: "get", server: true })
+const { data: footer_contact_info_data, status: footer_contact_info_data_status, error: footer_contact_info_error } = useFetch(`${config.public.apiBaseUrl}/items/footer_contact_info/`, { method: "get", server: true })
 </script>
 
 <template>

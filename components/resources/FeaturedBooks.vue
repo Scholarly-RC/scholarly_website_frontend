@@ -4,7 +4,7 @@ import BookCard from "./BookCard.vue";
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/resources_items/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 

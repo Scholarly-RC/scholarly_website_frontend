@@ -2,7 +2,7 @@
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/founder/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 
@@ -39,12 +39,16 @@ const { data, status, error } = useFetch(
           <div
             class="md:float-left md:mr-6 mb-4 md:mb-2 flex flex-col items-center text-center"
           >
-            <img
-              class="mx-auto mb-4 w-36 sm:w-48 h-36 sm:h-48 rounded-full"
-              :src="`${config.public.apiBaseUrl}/assets/${data.data.image}/?quality=85&format=webp`"
-              loading="lazy"
-              alt="Founder Image"
-            />
+             <NuxtImg
+               class="mx-auto mb-4 w-36 sm:w-48 h-36 sm:h-48 rounded-full"
+               :src="`${config.public.apiBaseUrl}/assets/${data.data.image}`"
+               :quality="85"
+               format="webp"
+               loading="lazy"
+               alt="Founder Image"
+               preset="avatar"
+               placeholder="[blurhash:data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI1Ii8+PC9maWx0ZXI+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNGM0Y0RjYiIGZpbHRlcj0idXJsKCNibHVyKSIvPjwvc3ZnPg==]"
+             />
             <h3
               class="mt-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
             >

@@ -2,7 +2,7 @@
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/careers_perks_and_benefits/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 

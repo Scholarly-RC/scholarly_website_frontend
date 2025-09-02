@@ -3,7 +3,7 @@ const scrollStore = useScrollStore();
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/resource_order_button/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 

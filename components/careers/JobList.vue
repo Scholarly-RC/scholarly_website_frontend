@@ -4,7 +4,7 @@ import JobCard from "./JobCard.vue";
 const config = useRuntimeConfig();
 const { data, status, error } = useFetch(
   `${config.public.apiBaseUrl}/items/careers_opening_items/`,
-  { method: "get" }
+  { method: "get", server: true }
 );
 </script>
 

@@ -7,7 +7,7 @@ const isTyping = ref(false)
 const chatContainer = ref(null)
 
 const config = useRuntimeConfig()
-const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/chatbox/`, { method: "get" })
+const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/chatbox/`, { method: "get", server: true })
 
 
 const toggleChatBox = () => {
@@ -99,9 +99,12 @@ onMounted(() => {
                 <div ref="chatContainer" class="flex flex-col gap-3 overflow-y-auto h-[45vh] my-2">
                     <div v-for="(chat, index) in conversation" :key="index">
                         <div v-if="chat.role === 'AI'" class="flex items-start gap-2.5">
-                            <img class="w-8 h-8 rounded-full"
-                                :src="`${config.public.apiBaseUrl}/assets/${data.data.ai_image}/?quality=85&format=webp`"
-                                loading="lazy" alt="AI Image">
+                             <NuxtImg class="w-8 h-8 rounded-full"
+                                 :src="`${config.public.apiBaseUrl}/assets/${data.data.ai_image}`"
+                                 :quality="85"
+                                 format="webp"
+                                 loading="lazy" alt="AI Image"
+                                 preset="avatar" />
                             <div
                                 class="w-auto max-w-[12rem] sm:max-w-[16rem] flex flex-col leading-1.5 px-3 py-1 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse">
@@ -122,9 +125,12 @@ onMounted(() => {
                                     {{ chat.message }}
                                 </p>
                             </div>
-                            <img class="w-8 h-8 rounded-full"
-                                :src="`${config.public.apiBaseUrl}/assets/${data.data.user_image}/?quality=85&format=webp`"
-                                loading="lazy" alt="User image">
+                             <NuxtImg class="w-8 h-8 rounded-full"
+                                 :src="`${config.public.apiBaseUrl}/assets/${data.data.user_image}`"
+                                 :quality="85"
+                                 format="webp"
+                                 loading="lazy" alt="User image"
+                                 preset="avatar" />
                         </div>
                     </div>
                 </div>
