@@ -23,7 +23,9 @@ const toggleChatBox = () => {
             isInitialTyping.value = true
             setTimeout(() => {
                 isInitialTyping.value = false
-            }, 2000) // 2 second typing animation
+                // Add initial message after typing animation
+                chatbotStore.addInitialMessage()
+            }, 2500) // 2.5 second typing animation
         }
     }
 }
@@ -38,6 +40,13 @@ const conversation = computed(() => {
 const resetChat = () => {
     chatbotStore.resetChatHistory()
     sessionId.value = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}` // Generate new session ID
+    // Show typing animation for initial message after reset
+    isInitialTyping.value = true
+    setTimeout(() => {
+        isInitialTyping.value = false
+        // Add initial message after typing animation
+        chatbotStore.addInitialMessage()
+    }, 2500) // 2.5 second typing animation
 }
 
 const handleChatSend = async (message) => {
@@ -103,9 +112,9 @@ onMounted(() => {
         <button v-if="!isChatBoxOpen" @click="toggleChatBox" aria-label="Open chat"
             class="z-40 fixed right-4 bottom-4 w-auto flex items-end justify-end group">
             <div
-                class="w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-full ring-2 ring-white dark:ring-gray-800 shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 ease-out hover:scale-110 active:scale-95">
+                class="w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 rounded-full ring-2 ring-white dark:ring-gray-800 shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 ease-out hover:scale-110 active:scale-95 animate-shake-interval">
                 <Icon name="heroicons:chat-bubble-left-right"
-                    class="w-7 sm:w-8 h-7 sm:h-8 text-white transition-transform duration-200 group-hover:rotate-12" />
+                    class="w-7 sm:w-8 h-7 sm:h-8 text-white transition-transform duration-200" />
             </div>
             <!-- Tooltip -->
             <div
@@ -119,7 +128,7 @@ onMounted(() => {
             <div class="flex items-center justify-between p-4 pb-2">
                 <div class="flex items-center gap-3">
                     <div
-                        class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
                         <Icon name="heroicons:chat-bubble-left-right" class="w-4 h-4 text-white" />
                     </div>
                     <h5 class="text-lg font-semibold text-gray-900 dark:text-white">{{ chatBoxTitle }}</h5>
@@ -143,25 +152,25 @@ onMounted(() => {
                     <div v-if="isInitialTyping"
                         class="w-full flex items-center justify-start gap-3 mb-2 animate-in slide-in-from-bottom-2 fade-in duration-300">
                         <div
-                            class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0">
                             <Icon name="heroicons:cpu-chip" class="w-4 h-4 text-white" />
                         </div>
                         <div
                             class="flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-700 rounded-2xl rounded-tl-md shadow-sm">
-                            <div class="flex space-x-1">
-                                <span
-                                    class="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0s]"></span>
-                                <span
-                                    class="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                                <span
-                                    class="w-2 h-2 bg-blue-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
-                            </div>
+                        <div class="flex space-x-1">
+                            <span
+                                class="w-2 h-2 bg-primary-500 rounded-full animate-bounce [animation-delay:0s]"></span>
+                            <span
+                                class="w-2 h-2 bg-primary-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                            <span
+                                class="w-2 h-2 bg-primary-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                        </div>
                         </div>
                     </div>
-                    <!-- Welcome message when no conversation and not typing -->
-                    <div v-else-if="!conversation || conversation.length === 0" class="text-center py-8">
+                    <!-- Welcome message when no conversation and not typing initially -->
+                    <div v-else-if="(!conversation || conversation.length === 0) && !isInitialTyping" class="text-center py-8">
                         <div
-                            class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                            class="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
                             <Icon name="heroicons:chat-bubble-left-right" class="w-6 h-6 text-white" />
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Hi! I'm here to help. How can I assist you
@@ -172,7 +181,7 @@ onMounted(() => {
                         :style="{ animationDelay: `${index * 100}ms` }">
                         <div v-if="chat.role === 'AI'" class="flex items-start gap-3">
                             <div
-                                class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                                class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0">
                                 <Icon name="heroicons:cpu-chip" class="w-4 h-4 text-white" />
                             </div>
                             <div
@@ -188,7 +197,7 @@ onMounted(() => {
                         </div>
                         <div v-else class="flex items-start gap-3 justify-end">
                             <div
-                                class="w-auto max-w-[14rem] sm:max-w-[18rem] flex flex-col leading-1.5 px-4 py-2 bg-blue-500 text-white rounded-2xl rounded-tr-md shadow-sm">
+                                class="w-auto max-w-[14rem] sm:max-w-[18rem] flex flex-col leading-1.5 px-4 py-2 bg-primary-500 text-white rounded-2xl rounded-tr-md shadow-sm">
                                 <div class="flex items-center space-x-2 rtl:space-x-reverse justify-end mb-1">
                                     <span class="text-xs font-semibold">You</span>
                                 </div>
@@ -206,7 +215,7 @@ onMounted(() => {
                 <div v-if="isTyping"
                     class="p-4 w-full flex items-center justify-start gap-3 mb-2 animate-in slide-in-from-bottom-2 fade-in duration-300">
                     <div
-                        class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0">
                         <Icon name="heroicons:cpu-chip" class="w-4 h-4 text-white" />
                     </div>
                     <div
@@ -238,7 +247,7 @@ onMounted(() => {
                         @keydown.enter.exact.prevent="handleChatSend(currentMessage)"></textarea>
                     <button @click="handleChatSend(currentMessage)" :disabled="!allowMessageSend"
                         aria-label="Send message"
-                        class="self-end p-3 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-sm flex items-center justify-center"
+                        class="self-end p-3 bg-primary-500 hover:bg-primary-600 disabled:bg-gray-400 text-white rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-sm flex items-center justify-center"
                         style="min-height: 2.5rem;">
                         <Icon name="heroicons:paper-airplane" class="w-5 h-5" />
                     </button>

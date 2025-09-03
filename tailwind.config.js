@@ -32,9 +32,21 @@ export default {
           "30%": { transform: "translateY(-10px) scale(1.1)" },
           "60%": { transform: "translateY(5px) scale(0.9)" },
         },
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "translateX(-2px)" },
+          "20%, 40%, 60%, 80%": { transform: "translateX(2px)" },
+        },
+        shakeInterval: {
+          "0%, 9%, 100%": { transform: "translateX(0)" },
+          "1%, 3%, 5%, 7%": { transform: "translateX(-2px)" },
+          "2%, 4%, 6%, 8%": { transform: "translateX(2px)" },
+        },
       },
       animation: {
         "custom-bounce": "customBounce 0.6s ease-in-out",
+        "shake": "shake 0.5s ease-in-out",
+        "shake-interval": "shakeInterval 5.5s ease-in-out infinite",
       },
     },
   },
