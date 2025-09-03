@@ -19,7 +19,7 @@ import FooterNavigation from './FooterNavigation.vue';
                 <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                     <a href="https://www.facebook.com/profile.php?id=61557278528125"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                        <Icon name="heroicons:facebook" class="w-5 h-5" />
+                        <Icon name="mdi:facebook" class="w-5 h-5" />
                     </a>
                 </div>
             </div>
