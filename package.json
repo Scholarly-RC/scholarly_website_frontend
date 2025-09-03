@@ -11,10 +11,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@langchain/core": "^0.3.42",
-    "@langchain/nomic": "^0.1.0",
-    "@langchain/openai": "^0.4.4",
-    "@langchain/qdrant": "^0.1.1",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/color-mode": "^3.5.2",
@@ -27,7 +23,6 @@
     "dayjs-nuxt": "^2.1.11",
     "dompurify": "^3.2.4",
     "jsdom": "^26.0.0",
-    "langchain": "^0.3.19",
     "nuxt": "^3.15.4",
     "nuxt-swiper": "^2.0.0",
     "pinia": "^3.0.1",

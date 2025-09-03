@@ -146,6 +146,8 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl:
         process.env.NUXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8055",
+      chatWebhookUrl:
+        process.env.NUXT_PUBLIC_CHAT_WEBHOOK_URL || "http://localhost:5678/webhook/6993ab66-7c2a-4114-bdc6-8ec634419a8f",
     },
     EMBEDDING_MODEL: process.env.EMBEDDING_MODEL,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
