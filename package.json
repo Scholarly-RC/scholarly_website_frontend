@@ -11,6 +11,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/heroicons": "^1.2.2",
+    "@iconify-json/lucide": "^1.2.66",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/tabler": "^1.2.22",
+    "@iconify-json/uil": "^1.2.3",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/color-mode": "^3.5.2",
@@ -31,11 +36,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@iconify-json/heroicons": "^1.2.2",
-    "@iconify-json/lucide": "^1.2.66",
-    "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/tabler": "^1.2.22",
-    "@iconify-json/uil": "^1.2.3",
     "@nuxt/icon": "^1.15.0"
   }
 }

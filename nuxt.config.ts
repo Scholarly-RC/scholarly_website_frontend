@@ -2,19 +2,22 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode",
-    "@pinia/nuxt",
-    "nuxt-swiper",
-    "@nuxt/fonts",
-    "dayjs-nuxt",
-    "@vee-validate/nuxt",
-    "@nuxtjs/sitemap",
-    "@nuxtjs/robots",
-    "@nuxt/icon",
-    "@nuxt/image",
-  ],
+   modules: [
+     "@nuxtjs/tailwindcss",
+     "@nuxtjs/color-mode",
+     "@pinia/nuxt",
+     "nuxt-swiper",
+     "@nuxt/fonts",
+     "dayjs-nuxt",
+     "@vee-validate/nuxt",
+     "@nuxtjs/sitemap",
+     "@nuxtjs/robots",
+     "@nuxt/icon",
+     "@nuxt/image",
+   ],
+   icon: {
+     serverBundle: 'local'
+   },
   app: {
     head: {
       link: [
