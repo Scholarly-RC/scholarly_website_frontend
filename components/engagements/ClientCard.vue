@@ -67,15 +67,12 @@ onMounted(() => {
       <div
         class="w-60 h-60 p-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 relative overflow-hidden group"
       >
-         <NuxtImg
-           class="w-full h-full object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-110"
-           :src="`${config.public.apiBaseUrl}/assets/${imageIds[0]}`"
-           :quality="85"
-           format="webp"
-           loading="lazy"
-           :alt="`About Page Image 1`"
-           preset="thumbnail"
-         />
+          <img
+            class="w-full h-full object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-110"
+            :src="`${config.public.apiBaseUrl}/assets/${imageIds[0]}`"
+            :alt="`About Page Image 1`"
+            loading="lazy"
+          />
         <div
           class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
         >
@@ -136,17 +133,14 @@ onMounted(() => {
             ></div>
           </div>
 
-           <NuxtImg
-             @click="toggleImgNav"
-             class="max-w-[100%] max-h-[100%] object-contain rounded-lg"
-             :src="`${config.public.apiBaseUrl}/assets/${imageIds[currentImageIndex]}`"
-             :quality="85"
-             format="webp"
-             :alt="`Fullscreen Image ${currentImageIndex + 1}`"
-             loading="lazy"
-             @load="isImgsLoading = false"
-             preset="hero"
-           />
+            <img
+              @click="toggleImgNav"
+              class="max-w-[100%] max-h-[100%] object-contain rounded-lg"
+              :src="`${config.public.apiBaseUrl}/assets/${imageIds[currentImageIndex]}`"
+              :alt="`Fullscreen Image ${currentImageIndex + 1}`"
+              loading="lazy"
+              @load="isImgsLoading = false"
+            />
 
           <button
             @click="nextImage"
