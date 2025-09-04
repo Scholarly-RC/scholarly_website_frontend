@@ -24,7 +24,7 @@ const { data, status, error } = useFetch(
           v-show="data?.data?.status === 'published'"
           @click="scrollStore.scrollToContact"
           type="button"
-          class="px-6 py-3.5 text-base font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="px-6 py-3.5 text-base font-medium text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
         >
           <span class="material-symbols-outlined text-white me-2">
             {{ data.data.icon }}
