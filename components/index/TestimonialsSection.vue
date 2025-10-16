@@ -1,10 +1,13 @@
 <script setup>
 const swaiperContainerRef = ref(null);
 const config = useRuntimeConfig();
-const { data, status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/testimonials/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/testimonials/`, {
+	method: "get",
+});
 
 useSwiper(swaiperContainerRef, {
 	loop: true,

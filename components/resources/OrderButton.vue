@@ -1,10 +1,13 @@
 <script setup>
 const scrollStore = useScrollStore();
 const config = useRuntimeConfig();
-const { data, status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/resource_order_button/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/resource_order_button/`, {
+	method: "get",
+});
 </script>
 
 <template>

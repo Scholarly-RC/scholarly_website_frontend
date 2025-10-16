@@ -1,9 +1,10 @@
 <script setup>
 const config = useRuntimeConfig();
-const { data, status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/hero/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/hero/`, { method: "get" });
 const scrollStore = useScrollStore();
 const { isGetStartedClicked } = storeToRefs(scrollStore);
 </script>

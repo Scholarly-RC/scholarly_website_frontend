@@ -2,10 +2,13 @@
 import JobCard from "./JobCard.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/careers_opening_items/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/careers_opening_items/`, {
+	method: "get",
+});
 </script>
 
 <template>

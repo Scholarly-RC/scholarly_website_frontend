@@ -1,9 +1,12 @@
 <script setup>
 const config = useRuntimeConfig();
-const { data, status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/footer_description/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/footer_description/`, {
+	method: "get",
+});
 </script>
 
 <template>

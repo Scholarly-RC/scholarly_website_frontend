@@ -7,10 +7,11 @@ const isTyping = ref(false);
 const chatContainer = ref(null);
 
 const config = useRuntimeConfig();
-const { data, status: _status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/chatbox/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status: _status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/chatbox/`, { method: "get" });
 
 const toggleChatBox = () => {
 	isChatBoxOpen.value = !isChatBoxOpen.value;
@@ -46,9 +47,7 @@ const handleChatSend = async (message) => {
 			method: "POST",
 			body: JSON.stringify({ query: message, response: data }),
 		});
-	} catch (error) {
-		console.error(error);
-	}
+	} catch (error) {}
 };
 
 const allowMessageSend = computed(() => {

@@ -2,10 +2,13 @@
 import ClientCards from "./ClientCards.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error: _error } = useFetch(
-	`${config.public.apiBaseUrl}/items/client_engagements_header/`,
-	{ method: "get" },
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/client_engagements_header/`, {
+	method: "get",
+});
 </script>
 
 <template>
