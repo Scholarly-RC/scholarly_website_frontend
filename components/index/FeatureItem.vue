@@ -1,5 +1,4 @@
 <script setup>
-// biome-ignore lint/correctness/noUnusedVariables: props is used in template
 const props = defineProps({
 	feature_item: Object,
 });

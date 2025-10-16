@@ -1,12 +1,10 @@
 <script setup>
-// biome-ignore lint/correctness/noUnusedVariables: props is used in template
 const props = defineProps({
 	faq_item: Object,
 });
 
 const isOpen = ref(false);
 
-// biome-ignore lint/correctness/noUnusedVariables: toggleStatus is used in template
 const toggleStatus = () => {
 	isOpen.value = !isOpen.value;
 };

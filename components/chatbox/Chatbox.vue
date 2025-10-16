@@ -7,7 +7,6 @@ const isTyping = ref(false);
 const chatContainer = ref(null);
 
 const config = useRuntimeConfig();
-// biome-ignore lint/correctness/noUnusedVariables: data is used in template, status and error are not
 const { data, status: _status, error: _error } = useFetch(
 	`${config.public.apiBaseUrl}/items/chatbox/`,
 	{ method: "get" },

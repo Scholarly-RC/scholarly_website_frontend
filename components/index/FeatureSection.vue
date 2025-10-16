@@ -1,9 +1,7 @@
 <script setup>
-// biome-ignore lint/correctness/noUnusedImports: FeatureItems is used in template
 import FeatureItems from "./FeatureItems.vue";
 
 const config = useRuntimeConfig();
-// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
 const { data, status, error: _error } = useFetch(
 	`${config.public.apiBaseUrl}/items/feature_section/`,
 	{ method: "get" },

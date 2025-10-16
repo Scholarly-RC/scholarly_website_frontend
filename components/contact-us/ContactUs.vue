@@ -1,17 +1,13 @@
 <script setup>
-// biome-ignore lint/correctness/noUnusedImports: ContactUsConfirmationModal is used in template
 import ContactUsConfirmationModal from "./ContactUsConfirmationModal.vue";
 
 const config = useRuntimeConfig();
-// biome-ignore lint/correctness/noUnusedVariables: contactUsStore is used in template
 const contactUsStore = useContactUsStore();
-// biome-ignore lint/correctness/noUnusedVariables: data is used in template, status and error are not
 const { data, status: _status, error: _error } = useFetch(
 	`${config.public.apiBaseUrl}/items/contact_us_section/`,
 	{ method: "get" },
 );
 const scrollStore = useScrollStore();
-// biome-ignore lint/correctness/noUnusedVariables: isClicked is used in template
 const { isClicked } = storeToRefs(scrollStore);
 </script>
 

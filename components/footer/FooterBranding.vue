@@ -1,6 +1,5 @@
 <script setup>
 const config = useRuntimeConfig();
-// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
 const { data, status, error: _error } = useFetch(
 	`${config.public.apiBaseUrl}/items/footer_description/`,
 	{ method: "get" },

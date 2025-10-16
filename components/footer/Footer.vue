@@ -1,5 +1,4 @@
 <script setup>
-// biome-ignore lint/correctness/noUnusedImports: FooterBranding and FooterNavigation are used in template
 import FooterBranding from "./FooterBranding.vue";
 import FooterNavigation from "./FooterNavigation.vue";
 </script>

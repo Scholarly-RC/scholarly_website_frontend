@@ -1,6 +1,5 @@
 <script setup>
 const contactUsStore = useContactUsStore();
-// biome-ignore lint/correctness/noUnusedVariables: showConfirmation, confirmationMessage, and isConfirmationSuccess are used in template
 const { showConfirmation, confirmationMessage, isConfirmationSuccess } =
 	storeToRefs(contactUsStore);
 

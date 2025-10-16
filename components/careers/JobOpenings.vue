@@ -1,9 +1,7 @@
 <script setup>
-// biome-ignore lint/correctness/noUnusedImports: JobList is used in template
 import JobList from "./JobList.vue";
 
 const config = useRuntimeConfig();
-// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
 const { data, status, error: _error } = useFetch(
 	`${config.public.apiBaseUrl}/items/careers_opening_header/`,
 	{ method: "get" },
