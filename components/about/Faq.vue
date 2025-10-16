@@ -1,10 +1,12 @@
 <script setup>
+// biome-ignore lint/correctness/noUnusedImports: FaqItem is used in template
 import FaqItem from "./FaqItem.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/faq_section/`,
-  { method: "get" }
+// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
+const { data, status, error: _error } = useFetch(
+	`${config.public.apiBaseUrl}/items/faq_section/`,
+	{ method: "get" },
 );
 </script>
 

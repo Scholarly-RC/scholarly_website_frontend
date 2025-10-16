@@ -1,7 +1,7 @@
 <script setup>
 const config = useRuntimeConfig();
 const props = defineProps({
-  client: Object,
+	client: Object,
 });
 
 const imageIds = ref([]);
@@ -11,51 +11,51 @@ const isImgsLoading = ref(false);
 const showImgNav = ref(true);
 
 const getImagesId = async () => {
-  let ids = [];
-  for (let index = 0; index < props.client.images.length; index++) {
-    const data = await $fetch(
-      `${config.public.apiBaseUrl}/items/client_engagements_items_files/${props.client.images[index]}`
-    );
-    ids.push(data?.data.directus_files_id);
-  }
-  imageIds.value = ids;
+	const ids = [];
+	for (let index = 0; index < props.client.images.length; index++) {
+		const data = await $fetch(
+			`${config.public.apiBaseUrl}/items/client_engagements_items_files/${props.client.images[index]}`,
+		);
+		ids.push(data?.data.directus_files_id);
+	}
+	imageIds.value = ids;
 };
 
 const toggleImgNav = () => {
-  showImgNav.value = !showImgNav.value;
+	showImgNav.value = !showImgNav.value;
 };
 
 const openFullscreen = (index) => {
-  currentImageIndex.value = index;
-  isFullscreenOpen.value = true;
-  document.body.style.overflow = "hidden";
+	currentImageIndex.value = index;
+	isFullscreenOpen.value = true;
+	document.body.style.overflow = "hidden";
 };
 
 const closeFullscreen = () => {
-  isFullscreenOpen.value = false;
-  document.body.style.overflow = "";
+	isFullscreenOpen.value = false;
+	document.body.style.overflow = "";
 };
 
 const prevImage = () => {
-  isImgsLoading.value = true;
-  if (currentImageIndex.value > 0) {
-    currentImageIndex.value--;
-  } else {
-    currentImageIndex.value = imageIds.value.length - 1;
-  }
+	isImgsLoading.value = true;
+	if (currentImageIndex.value > 0) {
+		currentImageIndex.value--;
+	} else {
+		currentImageIndex.value = imageIds.value.length - 1;
+	}
 };
 
 const nextImage = () => {
-  isImgsLoading.value = true;
-  if (currentImageIndex.value < imageIds.value.length - 1) {
-    currentImageIndex.value++;
-  } else {
-    currentImageIndex.value = 0;
-  }
+	isImgsLoading.value = true;
+	if (currentImageIndex.value < imageIds.value.length - 1) {
+		currentImageIndex.value++;
+	} else {
+		currentImageIndex.value = 0;
+	}
 };
 
 onMounted(() => {
-  getImagesId();
+	getImagesId();
 });
 </script>
 <template>

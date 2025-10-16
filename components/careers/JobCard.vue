@@ -1,6 +1,7 @@
 <script setup>
+// biome-ignore lint/correctness/noUnusedVariables: props is used in template
 const props = defineProps({
-  job_opening: Object,
+	job_opening: Object,
 });
 </script>
 <template>

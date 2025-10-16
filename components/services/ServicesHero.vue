@@ -1,8 +1,9 @@
 <script setup>
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/services_hero_section/`,
-  { method: "get" }
+// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
+const { data, status, error: _error } = useFetch(
+	`${config.public.apiBaseUrl}/items/services_hero_section/`,
+	{ method: "get" },
 );
 </script>
 

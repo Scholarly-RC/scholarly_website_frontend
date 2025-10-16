@@ -1,12 +1,12 @@
 <script setup>
 const config = useRuntimeConfig();
 const props = defineProps({
-  book: Object,
+	book: Object,
 });
 
 const showInfo = ref(false);
 const showButtonText = computed(() => {
-  return showInfo.value ? "Show Cover" : "Show Info";
+	return showInfo.value ? "Show Cover" : "Show Info";
 });
 </script>
 

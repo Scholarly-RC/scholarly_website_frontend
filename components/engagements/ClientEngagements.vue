@@ -1,10 +1,12 @@
 <script setup>
+// biome-ignore lint/correctness/noUnusedImports: ClientCards is used in template
 import ClientCards from "./ClientCards.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/client_engagements_header/`,
-  { method: "get" }
+// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
+const { data, status, error: _error } = useFetch(
+	`${config.public.apiBaseUrl}/items/client_engagements_header/`,
+	{ method: "get" },
 );
 </script>
 

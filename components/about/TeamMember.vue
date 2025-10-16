@@ -1,13 +1,16 @@
 <script setup>
+// biome-ignore lint/correctness/noUnusedVariables: config is used in template
 const config = useRuntimeConfig();
+// biome-ignore lint/correctness/noUnusedVariables: props is used in template
 const props = defineProps({
-  team_member: Object,
+	team_member: Object,
 });
 
 const seeMore = ref(false);
 
+// biome-ignore lint/correctness/noUnusedVariables: toggleSeeMore is used in template
 const toggleSeeMore = () => {
-  seeMore.value = !seeMore.value;
+	seeMore.value = !seeMore.value;
 };
 </script>
 

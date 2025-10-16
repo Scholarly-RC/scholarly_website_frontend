@@ -1,7 +1,21 @@
 <script setup>
-const config = useRuntimeConfig()
-const { data: footer_address_data, status: footer_address_data_status, error: footer_address_error } = useFetch(`${config.public.apiBaseUrl}/items/footer_address/`, { method: "get" })
-const { data: footer_contact_info_data, status: footer_contact_info_data_status, error: footer_contact_info_error } = useFetch(`${config.public.apiBaseUrl}/items/footer_contact_info/`, { method: "get" })
+const config = useRuntimeConfig();
+// biome-ignore lint/correctness/noUnusedVariables: footer_address_data and footer_address_data_status are used in template
+const {
+	data: footer_address_data,
+	status: footer_address_data_status,
+	error: _footer_address_error,
+} = useFetch(`${config.public.apiBaseUrl}/items/footer_address/`, {
+	method: "get",
+});
+// biome-ignore lint/correctness/noUnusedVariables: footer_contact_info_data and footer_contact_info_data_status are used in template
+const {
+	data: footer_contact_info_data,
+	status: footer_contact_info_data_status,
+	error: _footer_contact_info_error,
+} = useFetch(`${config.public.apiBaseUrl}/items/footer_contact_info/`, {
+	method: "get",
+});
 </script>
 
 <template>

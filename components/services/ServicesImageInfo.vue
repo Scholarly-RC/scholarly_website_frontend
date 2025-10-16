@@ -2,11 +2,11 @@
 const config = useRuntimeConfig();
 
 const props = defineProps({
-    imageId: String,
-    index: Number
-})
+	imageId: String,
+	index: Number,
+});
 
-const isLoading = ref(true)
+const isLoading = ref(true);
 </script>
 <template>
     <div>

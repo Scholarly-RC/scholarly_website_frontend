@@ -1,10 +1,12 @@
 <script setup>
+// biome-ignore lint/correctness/noUnusedImports: BookCard is used in template
 import BookCard from "./BookCard.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/resources_items/`,
-  { method: "get" }
+// biome-ignore lint/correctness/noUnusedVariables: data and status are used in template
+const { data, status, error: _error } = useFetch(
+	`${config.public.apiBaseUrl}/items/resources_items/`,
+	{ method: "get" },
 );
 </script>
 

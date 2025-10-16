@@ -4,30 +4,30 @@ import TeamMember from "./TeamMember.vue";
 
 const config = useRuntimeConfig();
 const {
-  data: our_team_header_data,
-  status: our_team_header_status,
-  error: our_team_header_error,
+	data: our_team_header_data,
+	status: our_team_header_status,
+	error: _our_team_header_error,
 } = useFetch(`${config.public.apiBaseUrl}/items/our_team_header/`, {
-  method: "get",
+	method: "get",
 });
 const {
-  data: our_team_members_data,
-  status: our_team_members_status,
-  error: our_team_members_error,
+	data: our_team_members_data,
+	status: our_team_members_status,
+	error: _our_team_members_error,
 } = useFetch(`${config.public.apiBaseUrl}/items/our_team_members/`, {
-  method: "get",
+	method: "get",
 });
 
 const columnedMembers = computed(() => {
-  const columnCount = 2;
-  const result = Array.from({ length: columnCount }, () => []);
+	const columnCount = 2;
+	const result = Array.from({ length: columnCount }, () => []);
 
-  our_team_members_data.value?.data.forEach((member, index) => {
-    const columnIndex = index % columnCount;
-    result[columnIndex].push(member);
-  });
+	our_team_members_data.value?.data.forEach((member, index) => {
+		const columnIndex = index % columnCount;
+		result[columnIndex].push(member);
+	});
 
-  return result;
+	return result;
 });
 </script>
 
