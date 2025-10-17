@@ -13,6 +13,7 @@ export default defineNuxtConfig({
 		"@nuxtjs/sitemap",
 		"@nuxtjs/robots",
 		"shadcn-nuxt",
+		"motion-v/nuxt",
 	],
 	shadcn: {
 		/**
