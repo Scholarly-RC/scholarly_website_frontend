@@ -1,5 +1,6 @@
 <script setup>
 import FaqItem from "./FaqItem.vue";
+import { Accordion } from "@/components/ui/accordion";
 
 const config = useRuntimeConfig();
 const {
@@ -35,11 +36,13 @@ const {
           >
             {{ data.data.title }}
           </h2>
-          <FaqItem
-            v-for="(faq_item, index) in data.data.faqs"
-            :key="index"
-            :faq_item="faq_item"
-          />
+           <Accordion type="single" collapsible>
+             <FaqItem
+               v-for="(faq_item, index) in data.data.faqs"
+               :key="index"
+               :faq_item="faq_item"
+             />
+           </Accordion>
         </div>
       </div>
     </div>
