@@ -1,73 +1,77 @@
 <script setup>
-const chatbotStore = useChatbotStore()
-const { chatHistory } = storeToRefs(chatbotStore)
-const isChatBoxOpen = ref(false)
-const currentMessage = ref("")
-const isTyping = ref(false)
-const chatContainer = ref(null)
+const chatbotStore = useChatbotStore();
+const { chatHistory } = storeToRefs(chatbotStore);
+const isChatBoxOpen = ref(false);
+const currentMessage = ref("");
+const isTyping = ref(false);
+const chatContainer = ref(null);
 
-const config = useRuntimeConfig()
-const { data, status, error } = useFetch(`${config.public.apiBaseUrl}/items/chatbox/`, { method: "get" })
-
+const config = useRuntimeConfig();
+const {
+	data,
+	status: _status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/chatbox/`, { method: "get" });
 
 const toggleChatBox = () => {
-    isChatBoxOpen.value = !isChatBoxOpen.value
-    if (isChatBoxOpen.value) {
-        chatbotStore.initialize()
-    }
-}
+	isChatBoxOpen.value = !isChatBoxOpen.value;
+	if (isChatBoxOpen.value) {
+		chatbotStore.initialize();
+	}
+};
 
 const conversation = computed(() => {
-    if (chatHistory.value) {
-        return JSON.parse(chatHistory.value).conversation
-    }
-    return {}
-})
+	if (chatHistory.value) {
+		return JSON.parse(chatHistory.value).conversation;
+	}
+	return {};
+});
 
 const resetChat = () => {
-    chatbotStore.resetChatHistory()
-}
+	chatbotStore.resetChatHistory();
+};
 
 const handleChatSend = async (message) => {
-    try {
-        currentMessage.value = ""
-        chatbotStore.updateChatHistory("USER", message)
-        isTyping.value = true
-        const data = await $fetch("/api/getResponse", {
-            method: "POST",
-            body: JSON.stringify({ query: message, chatHistory: chatHistory.value }),
-        });
-        isTyping.value = false
-        chatbotStore.updateChatHistory("AI", data)
+	try {
+		currentMessage.value = "";
+		chatbotStore.updateChatHistory("USER", message);
+		isTyping.value = true;
+		const data = await $fetch("/api/getResponse", {
+			method: "POST",
+			body: JSON.stringify({ query: message, chatHistory: chatHistory.value }),
+		});
+		isTyping.value = false;
+		chatbotStore.updateChatHistory("AI", data);
 
-        await $fetch("/api/saveChatbotMessages", {
-            method: "POST",
-            body: JSON.stringify({ query: message, response: data }),
-        });
-    } catch (error) {
-        console.error(error)
-    }
-}
+		await $fetch("/api/saveChatbotMessages", {
+			method: "POST",
+			body: JSON.stringify({ query: message, response: data }),
+		});
+	} catch (error) {}
+};
 
 const allowMessageSend = computed(() => {
-    return currentMessage.value.trim() !== '' & currentMessage.value.trim().length < 300
-})
+	return (
+		(currentMessage.value.trim() !== "") &
+		(currentMessage.value.trim().length < 300)
+	);
+});
 
 const chatBoxTitle = computed(() => {
-    return data?.value?.data ? data.value.data.title : "Scholarly Bot"
-})
+	return data?.value?.data ? data.value.data.title : "Scholarly Bot";
+});
 
 onMounted(() => {
-    watchEffect(() => {
-        isTyping.value
-        isChatBoxOpen.value
-        nextTick(() => {
-            if (chatContainer.value) {
-                chatContainer.value.scrollTop = chatContainer.value.scrollHeight;
-            }
-        })
-    })
-})
+	watchEffect(() => {
+		isTyping.value;
+		isChatBoxOpen.value;
+		nextTick(() => {
+			if (chatContainer.value) {
+				chatContainer.value.scrollTop = chatContainer.value.scrollHeight;
+			}
+		});
+	});
+});
 </script>
 
 <template>

@@ -1,11 +1,15 @@
 <script setup>
 import BookCard from "./BookCard.vue";
+import Skeleton from "~/components/ui/skeleton/Skeleton.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/resources_items/`,
-  { method: "get" }
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/resources_items/`, {
+	method: "get",
+});
 </script>
 
 <template>
@@ -14,20 +18,13 @@ const { data, status, error } = useFetch(
       v-if="status === 'pending'"
       class="py-8 px-4 mx-auto max-w-screen-lg lg:pb-10 lg:pt-5 lg:px-6"
     >
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
         <div
           v-for="index in 3"
           :key="index"
-          class="w-full flex flex-col items-center animate-pulse"
+          class="w-full sm:w-[20rem] flex flex-col items-center"
         >
-          <div
-            class="w-11 h-6 bg-gray-200 dark:bg-gray-700 rounded-full mb-1"
-          ></div>
-          <div
-            class="relative flex flex-col p-1 mx-auto w-full h-[25rem] max-w-md bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 shadow"
-          >
-            <div class="w-full h-full bg-gray-300 dark:bg-gray-600"></div>
-          </div>
+          <Skeleton class="w-[20rem] h-[25rem] max-w-md rounded-lg" />
         </div>
       </div>
     </div>

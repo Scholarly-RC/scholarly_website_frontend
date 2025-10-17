@@ -1,15 +1,16 @@
 <script setup>
-const contactUsStore = useContactUsStore()
-const { showConfirmation, confirmationMessage, isConfirmationSuccess } = storeToRefs(contactUsStore)
+const contactUsStore = useContactUsStore();
+const { showConfirmation, confirmationMessage, isConfirmationSuccess } =
+	storeToRefs(contactUsStore);
 
 onMounted(() => {
-    watchEffect(() => {
-        if (showConfirmation.value) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    });
+	watchEffect(() => {
+		if (showConfirmation.value) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "";
+		}
+	});
 });
 </script>
 

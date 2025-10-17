@@ -1,13 +1,13 @@
 <script setup>
-const servicesStore = useServicesStore()
+const servicesStore = useServicesStore();
 const props = defineProps({
-  services: Object
-})
+	services: Object,
+});
 
 const handleViewServiceDetail = (image_data) => {
-  const image_ids = image_data.map(data => data.directus_files_id);
-  servicesStore.open(image_ids)
-}
+	const image_ids = image_data.map((data) => data.directus_files_id);
+	servicesStore.open(image_ids);
+};
 </script>
 
 <template>
@@ -20,21 +20,17 @@ const handleViewServiceDetail = (image_data) => {
     </div>
     <h2 class="text-20 tracking-tight font-bold text-gray-900 dark:text-white">{{ props.services.name }}
     </h2>
-    <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
-      <li v-for="service in props.services.items" :key="service.id" class="flex items-center space-x-2">
-        <div class="flex items-start gap-1">
-          <svg :style="{ color: props.services.color }" class="shrink-0 w-3.5 h-3.5 mt-1 ms-1"
-            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-          </svg>
-          <span class="leading-tight">{{ service.name }}</span>
-        </div>
-        <button @click="handleViewServiceDetail(service.images)" v-show="service.images.length" class="px-3 py-1 text-sm font-medium rounded-lg transition 
-            bg-gray-200 text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700">
-          View
-        </button>
-      </li>
-    </ul>
+     <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
+       <li v-for="service in props.services.items" :key="service.id" class="flex items-center space-x-2 hover:bg-gray-50 dark:hover:bg-gray-800 hover:cursor-pointer">
+         <div class="flex items-start gap-1">
+           <svg :style="{ color: props.services.color }" class="shrink-0 w-3.5 h-3.5 mt-1 ms-1"
+             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+             <path
+               d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+           </svg>
+           <span @click="service.images.length && handleViewServiceDetail(service.images)" class="leading-tight">{{ service.name }}</span>
+         </div>
+       </li>
+     </ul>
   </div>
 </template>

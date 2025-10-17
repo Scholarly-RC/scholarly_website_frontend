@@ -1,6 +1,6 @@
 <script setup>
-import FooterBranding from './FooterBranding.vue';
-import FooterNavigation from './FooterNavigation.vue';
+import FooterBranding from "./FooterBranding.vue";
+import FooterNavigation from "./FooterNavigation.vue";
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  feature_item: Object,
+	feature_item: Object,
 });
 </script>
 

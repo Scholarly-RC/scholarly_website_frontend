@@ -1,8 +1,21 @@
 <script setup>
-import ServicesOfferedCard from './ServicesOfferedCard.vue';
-const config = useRuntimeConfig()
-const { data: services_offered_header_data, status: services_offered_header_status, error: services_offered_header_error } = useFetch(`${config.public.apiBaseUrl}/items/services_offered_header/`, { method: "get" })
-const { data: services_offered_categories_data, status: services_offered_categories_status, error: services_offered_categories_error } = useFetch(`${config.public.apiBaseUrl}/items/services_offered_categories/?fields=id,name,color,icon,status,items.id,items.name,items.images.directus_files_id`, { method: "get" })
+import ServicesOfferedCard from "./ServicesOfferedCard.vue";
+const config = useRuntimeConfig();
+const {
+	data: services_offered_header_data,
+	status: services_offered_header_status,
+	error: services_offered_header_error,
+} = useFetch(`${config.public.apiBaseUrl}/items/services_offered_header/`, {
+	method: "get",
+});
+const {
+	data: services_offered_categories_data,
+	status: services_offered_categories_status,
+	error: services_offered_categories_error,
+} = useFetch(
+	`${config.public.apiBaseUrl}/items/services_offered_categories/?fields=id,name,color,icon,status,items.id,items.name,items.images.directus_files_id`,
+	{ method: "get" },
+);
 </script>
 
 <template>

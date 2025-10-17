@@ -2,7 +2,7 @@
 import FeatureItem from "./FeatureItem.vue";
 
 const props = defineProps({
-  feature_items: [Object],
+	feature_items: [Object],
 });
 </script>
 

@@ -29,38 +29,38 @@ Answer:
 `;
 
 export default defineEventHandler(async (event) => {
-  const { query, chatHistory } = await readBody(event);
+	const { query, chatHistory } = await readBody(event);
 
-  const config = useRuntimeConfig();
+	const config = useRuntimeConfig();
 
-  const embeddings = new NomicEmbeddings({
-    model: config.EMBEDDING_MODEL,
-    apiKey: config.NOMIC_API_KEY,
-  });
+	const embeddings = new NomicEmbeddings({
+		model: config.EMBEDDING_MODEL,
+		apiKey: config.NOMIC_API_KEY,
+	});
 
-  const db = await QdrantVectorStore.fromExistingCollection(embeddings, {
-    url: config.QDRANT_URL,
-    apiKey: config.QDRANT_API_KEY,
-    collectionName: config.QDRANT_COLLECTION_NAME,
-    contentPayloadKey: "page_content",
-  });
+	const db = await QdrantVectorStore.fromExistingCollection(embeddings, {
+		url: config.QDRANT_URL,
+		apiKey: config.QDRANT_API_KEY,
+		collectionName: config.QDRANT_COLLECTION_NAME,
+		contentPayloadKey: "page_content",
+	});
 
-  const results = await db.similaritySearch(query, 3);
-  const contextText = results.map((doc) => doc.pageContent).join("\n---\n");
+	const results = await db.similaritySearch(query, 3);
+	const contextText = results.map((doc) => doc.pageContent).join("\n---\n");
 
-  const promptTemplate = ChatPromptTemplate.fromTemplate(PROMPT_TEMPLATE);
-  const prompt = await promptTemplate.format({
-    history: chatHistory || "No previous conversation.",
-    context: contextText || "No relevant data found.",
-    question: query,
-  });
+	const promptTemplate = ChatPromptTemplate.fromTemplate(PROMPT_TEMPLATE);
+	const prompt = await promptTemplate.format({
+		history: chatHistory || "No previous conversation.",
+		context: contextText || "No relevant data found.",
+		question: query,
+	});
 
-  const model = new ChatOpenAI({
-    model: config.CHAT_OPENAI_MODEL,
-    openAIApiKey: config.OPENAI_API_KEY,
-    temperature: 0,
-  });
+	const model = new ChatOpenAI({
+		model: config.CHAT_OPENAI_MODEL,
+		openAIApiKey: config.OPENAI_API_KEY,
+		temperature: 0,
+	});
 
-  const response = await model.invoke(prompt);
-  return response.content;
+	const response = await model.invoke(prompt);
+	return response.content;
 });

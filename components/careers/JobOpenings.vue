@@ -2,10 +2,13 @@
 import JobList from "./JobList.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/careers_opening_header/`,
-  { method: "get" }
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/careers_opening_header/`, {
+	method: "get",
+});
 </script>
 
 <template>

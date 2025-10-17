@@ -2,10 +2,13 @@
 import FeatureItems from "./FeatureItems.vue";
 
 const config = useRuntimeConfig();
-const { data, status, error } = useFetch(
-  `${config.public.apiBaseUrl}/items/feature_section/`,
-  { method: "get" }
-);
+const {
+	data,
+	status,
+	error: _error,
+} = useFetch(`${config.public.apiBaseUrl}/items/feature_section/`, {
+	method: "get",
+});
 </script>
 
 <template>
@@ -36,7 +39,9 @@ const { data, status, error } = useFetch(
           >
             {{ data.data.title }}
           </h2>
-          <p class="mb-5 text-gray-500 sm:text-xl dark:text-gray-400">
+          <p
+            class="mb-5 text-gray-500 sm:text-xl dark:text-gray-400"
+          >
             {{ data.data.description }}
           </p>
           <FeatureItems :feature_items="data.data.items" />

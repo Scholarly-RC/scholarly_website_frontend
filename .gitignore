@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+opencode.json
+AGENTS.md
