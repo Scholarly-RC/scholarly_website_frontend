@@ -8,6 +8,7 @@ const {
 	error: _error,
 } = useFetch(`${config.public.apiBaseUrl}/items/client_engagements_header/`, {
 	method: "get",
+	server: true,
 });
 </script>
 
