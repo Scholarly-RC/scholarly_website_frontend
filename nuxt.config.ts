@@ -94,6 +94,8 @@ export default defineNuxtConfig({
 		public: {
 			apiBaseUrl:
 				process.env.NUXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8055",
+			chatbotApiUrl:
+				process.env.NUXT_PUBLIC_CHATBOT_API_URL || "http://localhost:8000/api/chatbot/",
 		},
 		EMBEDDING_MODEL: process.env.EMBEDDING_MODEL,
 		OPENAI_API_KEY: process.env.OPENAI_API_KEY,

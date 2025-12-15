@@ -1,5 +1,5 @@
 <script setup>
-// import Chatbox from "~/components/chatbox/Chatbox.vue";
+import Chatbox from "~/components/chatbox/Chatbox.vue";
 import Footer from "~/components/footer/Footer.vue";
 import Navbar from "~/components/navbar/Navbar.vue";
 </script>
@@ -10,7 +10,7 @@ import Navbar from "~/components/navbar/Navbar.vue";
         <div class="mt-10">
             <slot />
         </div>
-        <!-- <Chatbox /> -->
+        <Chatbox />
         <Footer />
     </div>
 </template>
